@@ -405,6 +405,97 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
+    /* No.01 Our Story - 雜誌編輯排版 */
+.story-section {
+  padding: 50px 24px 40px;
+  border-bottom: 1px solid var(--border);
+}
+.story-head {
+  margin-bottom: 40px;
+}
+.story-en-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.story-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+.story-divider {
+  width: 45px;
+  height: 1px;
+  background-color: var(--text-main);
+  margin-top: 14px;
+}
+
+/* 故事時間軸列表 */
+.story-timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.story-item {
+  display: flex;
+  align-items: flex-start;
+}
+.story-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.55rem;
+  color: var(--text-main);
+  line-height: 1.1;
+  width: 38%;
+  padding-right: 12px;
+  letter-spacing: 0.5px;
+  /* 錯落效果：偶數項向右推 */
+  box-sizing: border-box;
+}
+.story-item:nth-child(even) .story-year {
+  padding-left: 20px;
+}
+.story-content {
+  width: 62%;
+}
+.story-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.story-desc-wrap {
+  border-left: 1px solid var(--border);
+  padding-left: 12px;
+  margin-left: 2px;
+}
+.story-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  letter-spacing: 0.5px;
+}
+
+/* 底部抽言 */
+.story-pull-quote {
+  margin-top: 45px;
+  padding-top: 30px;
+  border-top: 1px solid #eee9e0;
+  text-align: center;
+}
+.story-pull-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
   </style>
 </head>
 <body>
@@ -434,26 +525,64 @@
 
   <main>
     <!-- No.01 Our Story (內容預留給您自行填寫) -->
-    <section class="section" id="story">
-      <div class="sec-head">
-        <p class="sec-no">No.01</p>
-        <p class="sec-en-label">Our Story</p>
-        <h2 class="section-title">我們的故事</h2>
-      </div>
+   <!-- No.01 Our Story -->
+<section class="story-section" id="story">
+  <div class="story-head">
+    <p class="story-en-sub">Our Story</p>
+    <h2 class="story-title">我們的故事</h2>
+    <div class="story-divider"></div>
+  </div>
 
-      <ol class="timeline">
-        <li class="timeline-item">
-          <p class="timeline-date">2024</p>
-          <h3 class="timeline-title">故事的開始</h3>
-          <p class="timeline-desc">（此處為預留位置，您可以自行加入你們的相遇或甜蜜旅程文字...）</p>
-        </li>
-        <li class="timeline-item">
-          <p class="timeline-date">2026</p>
-          <h3 class="timeline-title">決定攜手一生</h3>
-          <p class="timeline-desc">（此處為預留位置，您可以填入求婚或決定共組家庭的故事...）</p>
-        </li>
-      </ol>
-    </section>
+  <ol class="story-timeline">
+    <!-- 2021.08 初遇 -->
+    <li class="story-item">
+      <div class="story-year">2021.08</div>
+      <div class="story-content">
+        <h3 class="story-item-title">初遇</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- 2021.09 靠近 -->
+    <li class="story-item">
+      <div class="story-year">2021.09</div>
+      <div class="story-content">
+        <h3 class="story-item-title">靠近</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- 2023.08 築巢 -->
+    <li class="story-item">
+      <div class="story-year">2023.08</div>
+      <div class="story-content">
+        <h3 class="story-item-title">築巢</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- 2026.02 承諾 -->
+    <li class="story-item">
+      <div class="story-year">2026.02</div>
+      <div class="story-content">
+        <h3 class="story-item-title">承諾</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
+        </div>
+      </div>
+    </li>
+  </ol>
+
+  <aside class="story-pull-quote">
+    <p>&ldquo;and so, the story begins.&rdquo;</p>
+  </aside>
+</section>
 
     <!-- No.02 The Gallery (相片準備中) -->
     <section class="section" id="gallery">
