@@ -663,7 +663,7 @@
       <div class="info-card">
         <h4>宴會時間</h4>
         <p>2027 年 3 月 13 日（星期六）</p>
-        <p>12:00 恭候 ｜ 12:30 午宴入席</p>
+        <p>11:30am 恭候 ｜ 12:30pm 午宴入席</p>
       </div>
 
       <div class="info-card">
@@ -762,29 +762,37 @@
             </select>
           </div>
 
-          <!-- 食物敏感 / 素食 -->
-          <div class="form-group">
-            <fieldset>
-              <legend>您有食物敏感 / 是素食者嗎？</legend>
-              <div class="options-list">
-                <label class="option-item">
-                  <input type="checkbox" name="dietary" value="沒有">
-                  沒有
-                </label>
-                <label class="option-item">
-                  <input type="checkbox" name="dietary" value="有食物敏感/素食">
-                  有食物敏感 / 是素食者 (請在下方列明，我們會盡力滿足)
-                </label>
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                  <label class="option-item">
-                    <input type="checkbox" name="dietary" value="其他">
-                    其他：
-                  </label>
-                  <input type="text" name="dietary_other" class="input-line" placeholder="請在此說明...">
-                </div>
-              </div>
-            </fieldset>
-          </div>
+         <!-- 食物敏感 / 飲食偏好 -->
+<div class="form-group">
+  <fieldset>
+    <legend>您有食物敏感 / 飲食偏好嗎？</legend>
+    <div class="options-list">
+      <!-- 1. 沒有 -->
+      <label class="option-item">
+        <input type="checkbox" name="dietary" value="沒有">
+        沒有
+      </label>
+
+      <!-- 2. 食物敏感 -->
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label class="option-item">
+          <input type="checkbox" name="dietary" value="有食物敏感">
+          我有食物敏感 (請在下方列明，我們會盡力滿足)
+        </label>
+        <input type="text" name="allergy_detail" class="input-line" placeholder="請列明敏感食材（例如：對花生/甲殼類敏感）...">
+      </div>
+
+      <!-- 3. 素食者 -->
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label class="option-item">
+          <input type="checkbox" name="dietary" value="素食者">
+          我是素食者 (請在下方列明，我們會盡力滿足)
+        </label>
+        <input type="text" name="veg_detail" class="input-line" placeholder="請列明素食需求（例如：蛋奶素/純素/其中1位素食）...">
+      </div>
+    </div>
+  </fieldset>
+</div>
 
           <!-- 預留車位 -->
           <div class="form-group">
@@ -904,22 +912,37 @@
     const isAttending = form.attendance.value === "能夠出席";
 
     // 收集飲食偏好
-    const selectedDietary = Array.from(form.querySelectorAll('input[name="dietary"]:checked'))
-      .map(cb => cb.value);
-    if (form.dietary_other && form.dietary_other.value.trim() !== "") {
-      selectedDietary.push(`備註: ${form.dietary_other.value.trim()}`);
-    }
+    // 收集選取的飲食偏好與填寫內容
+const selectedDietary = [];
 
-    const payload = {
-      greeting: guestName || '',
-      name: form.name.value,
-      attendance: form.attendance.value,
-      guests: isAttending ? form.guests.value : 0,
-      dietary: isAttending ? selectedDietary.join(', ') : '',
-      parking: isAttending ? (form.parking ? form.parking.value : '') : '',
-      shuttle_bus: isAttending ? (form.shuttle_bus ? form.shuttle_bus.value : '') : '',
-      message: form.message.value
-    };
+// 1. 檢查是否勾選「沒有」
+if (form.querySelector('input[name="dietary"][value="沒有"]').checked) {
+  selectedDietary.push('沒有');
+}
+
+// 2. 檢查食物敏感
+if (form.querySelector('input[name="dietary"][value="有食物敏感"]').checked) {
+  const allergyText = form.allergy_detail ? form.allergy_detail.value.trim() : '';
+  selectedDietary.push(allergyText ? `食物敏感: ${allergyText}` : '有食物敏感');
+}
+
+// 3. 檢查素食
+if (form.querySelector('input[name="dietary"][value="素食者"]').checked) {
+  const vegText = form.veg_detail ? form.veg_detail.value.trim() : '';
+  selectedDietary.push(vegText ? `素食: ${vegText}` : '素食者');
+}
+
+// 寫入 payload
+const payload = {
+  greeting: guestName || '',
+  name: form.name.value,
+  attendance: form.attendance.value,
+  guests: isAttending ? form.guests.value : 0,
+  dietary: isAttending ? selectedDietary.join(' | ') : '',
+  parking: isAttending ? (form.parking ? form.parking.value : '') : '',
+  shuttle_bus: isAttending ? (form.shuttle_bus ? form.shuttle_bus.value : '') : '',
+  message: form.message.value
+};
 
     fetch(SCRIPT_URL, {
       method: 'POST',
