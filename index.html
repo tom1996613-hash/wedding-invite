@@ -84,19 +84,41 @@
       font-size: 0.95rem;
     }
 
-    /* 倒數計時器 */
+    /* 倒數計時器：圖片背景卡片 */
+    .countdown-bg-card {
+      position: relative;
+      margin-top: 25px;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 30px 16px;
+      background-image: url('./images/wmhotel.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+    .countdown-bg-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 1;
+    }
     .countdown {
+      position: relative;
+      z-index: 2;
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-top: 25px;
+      gap: 10px;
     }
     .time-box {
-      background: var(--bg-color);
-      padding: 8px 12px;
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 8px 10px;
+      border-radius: 8px;
       min-width: 58px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(232, 226, 216, 0.8);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
     .time-box span {
       display: block;
@@ -113,22 +135,7 @@
       letter-spacing: 1px;
     }
 
-    /* 倒數下方自訂圖片容器 */
-    .hero-custom-photo {
-      margin: 30px auto 10px;
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
-    .hero-custom-photo img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* 章節通用標題 (Editorial 風格) */
+    /* 章節通用設定 */
     section {
       padding: 45px 24px;
       border-bottom: 1px solid var(--border);
@@ -136,7 +143,6 @@
     .sec-head {
       text-align: center;
       margin-bottom: 30px;
-      position: relative;
     }
     .sec-no {
       font-family: var(--font-en);
@@ -160,47 +166,94 @@
       letter-spacing: 2px;
     }
 
-    /* No.1 Our Story 時間軸框架 */
-    .timeline {
-      list-style: none;
-      position: relative;
-      padding-left: 20px;
-      margin: 20px 10px 0;
-      border-left: 1px dashed var(--gold);
+    /* No.01 Our Story */
+    .story-section {
+      padding: 50px 24px 40px;
+      border-bottom: 1px solid var(--border);
     }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 25px;
-      padding-left: 15px;
+    .story-head {
+      margin-bottom: 40px;
     }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -24px;
-      top: 6px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-    .timeline-date {
-      font-family: var(--font-en);
-      font-size: 0.85rem;
-      color: var(--gold);
-      font-weight: 600;
-    }
-    .timeline-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-    .timeline-desc {
-      font-size: 0.9rem;
+    .story-en-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    .story-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: 2px;
+      line-height: 1.3;
+    }
+    .story-divider {
+      width: 45px;
+      height: 1px;
+      background-color: var(--text-main);
+      margin-top: 14px;
+    }
+    .story-timeline {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .story-item {
+      display: flex;
+      align-items: flex-start;
+    }
+    .story-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.55rem;
+      color: var(--text-main);
+      line-height: 1.1;
+      width: 38%;
+      padding-right: 12px;
+      letter-spacing: 0.5px;
+      box-sizing: border-box;
+    }
+    .story-item:nth-child(even) .story-year {
+      padding-left: 20px;
+    }
+    .story-content {
+      width: 62%;
+    }
+    .story-item-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .story-desc-wrap {
+      border-left: 1px solid var(--border);
+      padding-left: 12px;
+      margin-left: 2px;
+    }
+    .story-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      letter-spacing: 0.5px;
+    }
+    .story-pull-quote {
+      margin-top: 45px;
+      padding-top: 30px;
+      border-top: 1px solid #eee9e0;
+      text-align: center;
+    }
+    .story-pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      letter-spacing: 1px;
     }
 
-    /* No.2 Gallery 預備中佔位 */
+    /* No.02 Gallery 預備中 */
     .gallery-placeholder {
       background: #faf8f5;
       border: 1px dashed var(--border);
@@ -219,7 +272,7 @@
       letter-spacing: 1px;
     }
 
-    /* No.3 Details 婚禮資訊 */
+    /* No.03 Details 婚禮資訊 */
     .info-card {
       text-align: center;
       margin-bottom: 20px;
@@ -235,7 +288,7 @@
       color: var(--text-main);
     }
 
-    /* No.4 Venue 地點與地圖按鈕 */
+    /* No.04 Venue 交通與地點 */
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -269,7 +322,7 @@
       color: #fff;
     }
 
-    /* 小叮嚀 Note 區塊 */
+    /* 小叮嚀 Note */
     .notice-card {
       background: #faf7f2;
       border-left: 3px solid var(--gold);
@@ -280,7 +333,7 @@
       color: var(--text-main);
     }
 
-    /* No.5 RSVP 表單 */
+    /* No.05 RSVP 表單 */
     .form-group {
       margin-bottom: 22px;
     }
@@ -352,6 +405,9 @@
       outline: none;
       width: 100%;
     }
+    .input-line:focus {
+      border-bottom-style: solid;
+    }
     .btn-submit {
       width: 100%;
       padding: 14px;
@@ -405,155 +461,6 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
-    /* No.01 Our Story - 雜誌編輯排版 */
-.story-section {
-  padding: 50px 24px 40px;
-  border-bottom: 1px solid var(--border);
-}
-.story-head {
-  margin-bottom: 40px;
-}
-.story-en-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-.story-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--text-main);
-  letter-spacing: 2px;
-  line-height: 1.3;
-}
-.story-divider {
-  width: 45px;
-  height: 1px;
-  background-color: var(--text-main);
-  margin-top: 14px;
-}
-
-/* 故事時間軸列表 */
-.story-timeline {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-.story-item {
-  display: flex;
-  align-items: flex-start;
-}
-.story-year {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.55rem;
-  color: var(--text-main);
-  line-height: 1.1;
-  width: 38%;
-  padding-right: 12px;
-  letter-spacing: 0.5px;
-  /* 錯落效果：偶數項向右推 */
-  box-sizing: border-box;
-}
-.story-item:nth-child(even) .story-year {
-  padding-left: 20px;
-}
-.story-content {
-  width: 62%;
-}
-.story-item-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-main);
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-.story-desc-wrap {
-  border-left: 1px solid var(--border);
-  padding-left: 12px;
-  margin-left: 2px;
-}
-.story-desc {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  letter-spacing: 0.5px;
-}
-
-/* 底部抽言 */
-.story-pull-quote {
-  margin-top: 45px;
-  padding-top: 30px;
-  border-top: 1px solid #eee9e0;
-  text-align: center;
-}
-.story-pull-quote p {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.35rem;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-}
-    /* 倒數計時器：圖片背景卡片 */
-.countdown-bg-card {
-  position: relative;
-  margin-top: 25px;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 30px 16px;
-  /* 請替換為您的圖片路徑或網址 */
-  background-image: url('./images/wmhotel.jpg');
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* 圖片上方半透明磨砂遮罩（確保文字可讀） */
-.countdown-bg-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  z-index: 1;
-}
-
-/* 倒數時間方塊 */
-.countdown {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.time-box {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 8px 10px;
-  border-radius: 8px;
-  min-width: 58px;
-  border: 1px solid rgba(232, 226, 216, 0.8);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.time-box span {
-  display: block;
-  font-family: var(--font-en);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1.2;
-}
-
-.time-box label {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
   </style>
 </head>
 <body>
@@ -566,79 +473,74 @@
     <h1 class="names">CHRISTY & TOM</h1>
     <div class="date-badge">2027 . 03 . 13</div>
 
-   <!-- 倒數計時器（自帶圖片背景） -->
-<div class="countdown-bg-card">
-  <div class="countdown" id="countdown" aria-label="婚禮倒數">
-    <div class="time-box"><span id="days">00</span><label>Days</label></div>
-    <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
-    <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
-    <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
-  </div>
-</div>
+    <!-- 倒數計時器（自帶圖片背景） -->
+    <div class="countdown-bg-card">
+      <div class="countdown" id="countdown" aria-label="婚禮倒數">
+        <div class="time-box"><span id="days">00</span><label>Days</label></div>
+        <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+        <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
+        <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- No.01 Our Story (內容預留給您自行填寫) -->
-   <!-- No.01 Our Story -->
-<section class="story-section" id="story">
-  <div class="story-head">
-    <p class="story-en-sub">Our Story</p>
-    <h2 class="story-title">我們的故事</h2>
-    <div class="story-divider"></div>
-  </div>
-
-  <ol class="story-timeline">
-    <!-- 2021.08 初遇 -->
-    <li class="story-item">
-      <div class="story-year">2021.08</div>
-      <div class="story-content">
-        <h3 class="story-item-title">初遇</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
-        </div>
+    <!-- No.01 Our Story -->
+    <section class="story-section" id="story">
+      <div class="story-head">
+        <p class="story-en-sub">Our Story</p>
+        <h2 class="story-title">我們的故事</h2>
+        <div class="story-divider"></div>
       </div>
-    </li>
 
-    <!-- 2021.09 靠近 -->
-    <li class="story-item">
-      <div class="story-year">2021.09</div>
-      <div class="story-content">
-        <h3 class="story-item-title">靠近</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
-        </div>
-      </div>
-    </li>
+      <ol class="story-timeline">
+        <li class="story-item">
+          <div class="story-year">2021.08</div>
+          <div class="story-content">
+            <h3 class="story-item-title">初遇</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
+            </div>
+          </div>
+        </li>
 
-    <!-- 2023.08 築巢 -->
-    <li class="story-item">
-      <div class="story-year">2023.08</div>
-      <div class="story-content">
-        <h3 class="story-item-title">築巢</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
-        </div>
-      </div>
-    </li>
+        <li class="story-item">
+          <div class="story-year">2021.09</div>
+          <div class="story-content">
+            <h3 class="story-item-title">靠近</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
+            </div>
+          </div>
+        </li>
 
-    <!-- 2026.02 承諾 -->
-    <li class="story-item">
-      <div class="story-year">2026.02</div>
-      <div class="story-content">
-        <h3 class="story-item-title">承諾</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
-        </div>
-      </div>
-    </li>
-  </ol>
+        <li class="story-item">
+          <div class="story-year">2023.08</div>
+          <div class="story-content">
+            <h3 class="story-item-title">築巢</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
+            </div>
+          </div>
+        </li>
 
-  <aside class="story-pull-quote">
-    <p>&ldquo;and so, the story begins.&rdquo;</p>
-  </aside>
-</section>
+        <li class="story-item">
+          <div class="story-year">2026.02</div>
+          <div class="story-content">
+            <h3 class="story-item-title">承諾</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
+            </div>
+          </div>
+        </li>
+      </ol>
 
-    <!-- No.02 The Gallery (相片準備中) -->
+      <aside class="story-pull-quote">
+        <p>&ldquo;and so, the story begins.&rdquo;</p>
+      </aside>
+    </section>
+
+    <!-- No.02 The Gallery -->
     <section class="section" id="gallery">
       <div class="sec-head">
         <p class="sec-no">No.02</p>
@@ -652,7 +554,7 @@
       </div>
     </section>
 
-    <!-- No.03 The Day (婚禮資訊，已移除 Dress code) -->
+    <!-- No.03 The Day -->
     <section class="section" id="details">
       <div class="sec-head">
         <p class="sec-no">No.03</p>
@@ -673,7 +575,7 @@
       </div>
     </section>
 
-    <!-- No.04 The Venue (宴客地點、地圖與交通指引) -->
+    <!-- No.04 The Venue -->
     <section class="section" id="venue">
       <div class="sec-head">
         <p class="sec-no">No.04</p>
@@ -696,7 +598,7 @@
       </div>
     </section>
 
-    <!-- 給賓客的小叮嚀 (自訂 Note 區塊) -->
+    <!-- 給賓客的小叮嚀 -->
     <section class="section" id="notes">
       <div class="sec-head">
         <p class="sec-en-label">Reminders</p>
@@ -704,12 +606,12 @@
       </div>
 
       <div class="notice-card">
-        <p>• 為讓各位能順利入座並享受完整流程，敬請於 12:00～12:30 之間抵達會場。<br>
+        <p>• 為讓各位能順利入座並享受完整流程，敬請於 11:30～12:30 之間抵達會場。<br>
            • 如需乘搭專車接送或預留車位，請在下方回覆表單中為我們標註，方便安排。</p>
       </div>
     </section>
 
-    <!-- No.05 RSVP 出席回覆表單 -->
+    <!-- No.05 RSVP 表單 -->
     <section class="section" id="rsvp">
       <div class="sec-head">
         <p class="sec-no">No.05</p>
@@ -762,37 +664,34 @@
             </select>
           </div>
 
-         <!-- 食物敏感 / 飲食偏好 -->
-<div class="form-group">
-  <fieldset>
-    <legend>您有食物敏感 / 飲食偏好嗎？</legend>
-    <div class="options-list">
-      <!-- 1. 沒有 -->
-      <label class="option-item">
-        <input type="checkbox" name="dietary" value="沒有">
-        沒有
-      </label>
+          <!-- 食物敏感 / 飲食偏好 -->
+          <div class="form-group">
+            <fieldset>
+              <legend>您有食物敏感 / 飲食偏好嗎？</legend>
+              <div class="options-list">
+                <label class="option-item">
+                  <input type="checkbox" name="dietary" value="沒有">
+                  沒有
+                </label>
 
-      <!-- 2. 食物敏感 -->
-      <div style="display: flex; flex-direction: column; gap: 6px;">
-        <label class="option-item">
-          <input type="checkbox" name="dietary" value="有食物敏感">
-          我有食物敏感 (請在下方列明，我們會盡力滿足)
-        </label>
-        <input type="text" name="allergy_detail" class="input-line" placeholder="請列明敏感食材（例如：對花生/甲殼類敏感）...">
-      </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <label class="option-item">
+                    <input type="checkbox" name="dietary" value="有食物敏感">
+                    我有食物敏感 (請在下方列明，我們會盡力滿足)
+                  </label>
+                  <input type="text" name="allergy_detail" class="input-line" placeholder="請列明敏感食材（例如：對花生/甲殼類敏感）...">
+                </div>
 
-      <!-- 3. 素食者 -->
-      <div style="display: flex; flex-direction: column; gap: 6px;">
-        <label class="option-item">
-          <input type="checkbox" name="dietary" value="素食者">
-          我是素食者 (請在下方列明，我們會盡力滿足)
-        </label>
-        <input type="text" name="veg_detail" class="input-line" placeholder="請列明素食需求（例如：蛋奶素/純素/其中1位素食）...">
-      </div>
-    </div>
-  </fieldset>
-</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <label class="option-item">
+                    <input type="checkbox" name="dietary" value="素食者">
+                    我是素食者 (請在下方列明，我們會盡力滿足)
+                  </label>
+                  <input type="text" name="veg_detail" class="input-line" placeholder="請列明素食需求（例如：蛋奶素/純素/其中1位素食）...">
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
           <!-- 預留車位 -->
           <div class="form-group">
@@ -864,8 +763,8 @@
   // 1. Google Apps Script Web App URL
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLI39Xh6BruzlIuD6gBIQD0XbbbNicCRyJ7JrKZRS30mxBnYieuMCy0LphTMIDnBWb/exec";
 
-  // 2. 婚禮目標日期 (2027-03-13 12:30)
-  const weddingDate = new Date(2027, 2, 13, 12, 30, 0).getTime();
+  // 2. 婚禮目標日期 (2027-03-13 11:30 恭候)
+  const weddingDate = new Date(2027, 2, 13, 11, 30, 0).getTime();
 
   // 3. 解析網址參數 ?to=賓客稱謂
   const urlParams = new URLSearchParams(window.location.search);
@@ -911,38 +810,36 @@
 
     const isAttending = form.attendance.value === "能夠出席";
 
-    // 收集飲食偏好
     // 收集選取的飲食偏好與填寫內容
-const selectedDietary = [];
+    const selectedDietary = [];
+    if (isAttending) {
+      const noneCb = form.querySelector('input[name="dietary"][value="沒有"]');
+      const allergyCb = form.querySelector('input[name="dietary"][value="有食物敏感"]');
+      const vegCb = form.querySelector('input[name="dietary"][value="素食者"]');
 
-// 1. 檢查是否勾選「沒有」
-if (form.querySelector('input[name="dietary"][value="沒有"]').checked) {
-  selectedDietary.push('沒有');
-}
+      if (noneCb && noneCb.checked) {
+        selectedDietary.push('沒有');
+      }
+      if (allergyCb && allergyCb.checked) {
+        const allergyText = form.allergy_detail ? form.allergy_detail.value.trim() : '';
+        selectedDietary.push(allergyText ? `食物敏感: ${allergyText}` : '有食物敏感');
+      }
+      if (vegCb && vegCb.checked) {
+        const vegText = form.veg_detail ? form.veg_detail.value.trim() : '';
+        selectedDietary.push(vegText ? `素食: ${vegText}` : '素食者');
+      }
+    }
 
-// 2. 檢查食物敏感
-if (form.querySelector('input[name="dietary"][value="有食物敏感"]').checked) {
-  const allergyText = form.allergy_detail ? form.allergy_detail.value.trim() : '';
-  selectedDietary.push(allergyText ? `食物敏感: ${allergyText}` : '有食物敏感');
-}
-
-// 3. 檢查素食
-if (form.querySelector('input[name="dietary"][value="素食者"]').checked) {
-  const vegText = form.veg_detail ? form.veg_detail.value.trim() : '';
-  selectedDietary.push(vegText ? `素食: ${vegText}` : '素食者');
-}
-
-// 寫入 payload
-const payload = {
-  greeting: guestName || '',
-  name: form.name.value,
-  attendance: form.attendance.value,
-  guests: isAttending ? form.guests.value : 0,
-  dietary: isAttending ? selectedDietary.join(' | ') : '',
-  parking: isAttending ? (form.parking ? form.parking.value : '') : '',
-  shuttle_bus: isAttending ? (form.shuttle_bus ? form.shuttle_bus.value : '') : '',
-  message: form.message.value
-};
+    const payload = {
+      greeting: guestName || '',
+      name: form.name.value,
+      attendance: form.attendance.value,
+      guests: isAttending ? form.guests.value : 0,
+      dietary: isAttending ? selectedDietary.join(' | ') : '',
+      parking: isAttending && form.parking ? form.parking.value : '',
+      shuttle_bus: isAttending && form.shuttle_bus ? form.shuttle_bus.value : '',
+      message: form.message.value
+    };
 
     fetch(SCRIPT_URL, {
       method: 'POST',
