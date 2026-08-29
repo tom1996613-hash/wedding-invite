@@ -201,6 +201,25 @@
       color: var(--text-muted);
       font-family: 'Cinzel', serif;
     }
+    .btn-pdf {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: var(--primary, #8b5d5d);
+  border: 1px solid var(--primary, #8b5d5d);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-family: inherit;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-pdf:hover {
+  background-color: var(--primary, #8b5d5d);
+  color: #fff;
+}
   </style>
 </head>
 <body>
@@ -208,9 +227,9 @@
 <div class="wrapper">
   <!-- Header / Hero -->
   <header class="hero">
-    <div class="sub-tag">The Wedding Issue</div>
+    <div class="sub-tag">Our Wedding </div>
     <div class="greeting" id="guestGreeting">親愛的朋友</div>
-    <h1 class="names">GROOM & BRIDE</h1>
+    <h1 class="names">CHRISTY & TOM</h1>
     <div class="date-badge">2027 . 03 . 13</div>
 
     <div class="countdown" id="countdown">
@@ -230,13 +249,18 @@
     <div class="info-item">
       <h4>宴會時間</h4>
       <p>2027 年 3 月 13 日（星期六）</p>
-      <p>17:00 迎賓酒會 ｜ 18:30 晚宴開始</p>
+      <p>12:00 恭候 ｜ 12:30 午宴入席</p>
     </div>
     <div class="info-item">
       <h4>宴會地點</h4>
-      <p>台北君悅酒店 3樓 宴會廳</p>
-      <p>台北市信義區松壽路2號</p>
-      <a href="https://maps.google.com" target="_blank" class="btn-map">開啟 Google 地圖</a>
+      <p>WM Hotel 大禮堂</p>
+      <p>香港西貢惠民路二十八號</p>
+      <a href="https://www.google.com/maps/place/WM+Hotel/@22.3856919,114.2754333,19z/data=!4m9!3m8!1s0x340405bb214e8d89:0x9d4b28ea168cf11a!5m2!4m1!1i2!8m2!3d22.385398!4d114.2755701!16s%2Fg%2F11rgrs49lz?hl=ja&entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-map">開啟 Google 地圖</a>
+      <div>
+        <a href="wm-hotel-guide.pdf" target="_blank" class="btn-pdf">
+         📄 WM酒店步行路線圖及公共交通
+        </a>
+      </div>
     </div>
   </section>
 
