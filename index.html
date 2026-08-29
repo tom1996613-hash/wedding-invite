@@ -84,55 +84,54 @@
       font-size: 0.95rem;
     }
 
-    /* 倒數計時器：圖片背景卡片 */
-    .countdown-bg-card {
-      position: relative;
-      margin-top: 25px;
-      border-radius: 12px;
-      overflow: hidden;
-      padding: 30px 16px;
-      background-image: url('./images/wmhotel.jpeg');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
-    .countdown-bg-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-      z-index: 1;
-    }
-    .countdown {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-    .time-box {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 8px 10px;
-      border-radius: 8px;
-      min-width: 58px;
-      border: 1px solid rgba(232, 226, 216, 0.8);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-    .time-box span {
-      display: block;
-      font-family: var(--font-en);
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--primary);
-      line-height: 1.2;
-    }
-    .time-box label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    /* 刊頭中間的不透明圖片 */
+.hero-photo-banner {
+  width: 100%;
+  max-width: 460px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hero-photo-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 倒數計時器樣式（回歸純淨卡片排版） */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.time-box {
+  background: var(--bg-color);
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-width: 58px;
+  border: 1px solid var(--border);
+}
+
+.time-box span {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.time-box label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
     }
 
     /* 章節通用設定 */
@@ -468,21 +467,25 @@
 <div class="wrapper">
   <!-- ① Header / Hero 雜誌刊頭 -->
   <header class="hero">
-    <div class="sub-tag">The Wedding Issue</div>
-    <div class="greeting" id="guestGreeting">親愛的朋友</div>
-    <h1 class="names">CHRISTY & TOM</h1>
-    <div class="date-badge">2027 . 03 . 13</div>
+  <div class="sub-tag">The Wedding Issue</div>
+  <div class="greeting" id="guestGreeting">親愛的朋友</div>
+  <h1 class="names">CHRISTY & TOM</h1>
 
-    <!-- 倒數計時器（自帶圖片背景） -->
-    <div class="countdown-bg-card">
-      <div class="countdown" id="countdown" aria-label="婚禮倒數">
-        <div class="time-box"><span id="days">00</span><label>Days</label></div>
-        <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
-        <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
-        <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
-      </div>
-    </div>
-  </header>
+  <!-- 放置於姓名與日期中間的不透明圖片 -->
+  <div class="hero-photo-banner">
+    <img src="./images/wmhotel.jpg" alt="WM Hotel Wedding">
+  </div>
+
+  <div class="date-badge">2027 . 03 . 13</div>
+
+  <!-- 倒數計時器 -->
+  <div class="countdown" id="countdown" aria-label="婚禮倒數">
+    <div class="time-box"><span id="days">00</span><label>Days</label></div>
+    <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+    <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
+    <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
+  </div>
+</header>
 
   <main>
     <!-- No.01 Our Story -->
