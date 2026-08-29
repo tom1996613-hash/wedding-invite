@@ -2,47 +2,58 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CHRISTY & TOM 婚禮邀請</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #8b5d5d;
-      --bg-color: #faf7f2;
+      --bg-color: #fbf9f5;
       --card-bg: #ffffff;
-      --text-main: #333333;
-      --text-muted: #777777;
+      --text-main: #2b2520;
+      --text-muted: #7a6d5d;
       --gold: #b38b59;
       --border: #e8e2d8;
+      --font-serif: 'Noto Serif TC', serif;
+      --font-en: 'Cinzel', 'Cormorant Garamond', serif;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Noto Serif TC', serif;
+      font-family: var(--font-serif);
       background-color: var(--bg-color);
       color: var(--text-main);
       line-height: 1.8;
       display: flex;
       justify-content: center;
+      -webkit-font-smoothing: antialiased;
     }
+
     .wrapper {
       width: 100%;
-      max-width: 500px;
+      max-width: 520px;
       background: var(--card-bg);
       min-height: 100vh;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+      position: relative;
     }
-    /* Hero Section */
+
+    /* 刊頭與封面 (Hero) */
     .hero {
       text-align: center;
-      padding: 60px 24px 40px;
+      padding: 60px 24px 35px;
       background: linear-gradient(180deg, #f5efe6 0%, #ffffff 100%);
       border-bottom: 1px solid var(--border);
+      position: relative;
     }
     .hero .sub-tag {
-      font-family: 'Cinzel', serif;
+      font-family: var(--font-en);
       letter-spacing: 4px;
       font-size: 0.85rem;
       color: var(--gold);
@@ -50,123 +61,296 @@
       margin-bottom: 15px;
     }
     .greeting {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--primary);
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       font-weight: 600;
     }
     .names {
-      font-family: 'Cinzel', serif;
-      font-size: 2.2rem;
+      font-family: var(--font-en);
+      font-size: 2.1rem;
       letter-spacing: 3px;
       color: var(--text-main);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .date-badge {
       display: inline-block;
       border-top: 1px solid var(--gold);
       border-bottom: 1px solid var(--gold);
-      padding: 6px 20px;
-      margin-top: 15px;
-      font-family: 'Cinzel', serif;
+      padding: 6px 22px;
+      margin-top: 14px;
+      font-family: var(--font-en);
       letter-spacing: 2px;
       font-size: 0.95rem;
     }
-    /* Countdown */
+
+    /* 倒數計時器 */
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
+      gap: 12px;
+      margin-top: 25px;
     }
     .time-box {
       background: var(--bg-color);
-      padding: 10px 14px;
-      border-radius: 8px;
-      min-width: 60px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      min-width: 58px;
+      border: 1px solid var(--border);
     }
     .time-box span {
       display: block;
-      font-family: 'Cinzel', serif;
-      font-size: 1.4rem;
+      font-family: var(--font-en);
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--primary);
+      line-height: 1.2;
     }
     .time-box label {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    /* Content Sections */
+
+    /* 倒數下方自訂圖片容器 */
+    .hero-custom-photo {
+      margin: 30px auto 10px;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .hero-custom-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* 章節通用標題 (Editorial 風格) */
     section {
-      padding: 40px 24px;
+      padding: 45px 24px;
       border-bottom: 1px solid var(--border);
     }
-    .sec-title {
+    .sec-head {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      position: relative;
     }
-    .sec-title h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.5rem;
+    .sec-no {
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .sec-en-label {
+      font-family: var(--font-en);
+      font-size: 0.9rem;
       letter-spacing: 2px;
-      color: var(--primary);
-    }
-    .sec-title p {
-      font-size: 0.85rem;
-      color: var(--gold);
-      letter-spacing: 1px;
-    }
-    /* Details */
-    .info-item {
-      margin-bottom: 18px;
-      text-align: center;
-    }
-    .info-item h4 {
-      color: var(--gold);
-      font-size: 0.95rem;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
-    .btn-map {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 22px;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 20px;
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    /* No.1 Our Story 時間軸框架 */
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      margin: 20px 10px 0;
+      border-left: 1px dashed var(--gold);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+      padding-left: 15px;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .timeline-date {
+      font-family: var(--font-en);
       font-size: 0.85rem;
-      letter-spacing: 1px;
-    }
-    /* Form Styles */
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.9rem;
+      color: var(--gold);
       font-weight: 600;
     }
-    .form-group input, .form-group select, .form-group textarea {
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* No.2 Gallery 預備中佔位 */
+    .gallery-placeholder {
+      background: #faf8f5;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .gallery-placeholder-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+    .gallery-placeholder p {
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    /* No.3 Details 婚禮資訊 */
+    .info-card {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .info-card h4 {
+      color: var(--gold);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .info-card p {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    /* No.4 Venue 地點與地圖按鈕 */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn-action {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 0.88rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: 85%;
+      max-width: 280px;
+    }
+    .btn-map {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-pdf {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-pdf:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* 小叮嚀 Note 區塊 */
+    .notice-card {
+      background: #faf7f2;
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    /* No.5 RSVP 表單 */
+    .form-group {
+      margin-bottom: 22px;
+    }
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+    .form-label, legend {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .sub-desc {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: normal;
+      margin-top: 2px;
+    }
+    .required {
+      color: #b84040;
+      margin-left: 2px;
+    }
+    .form-control {
       width: 100%;
-      padding: 12px;
+      padding: 12px 14px;
       border: 1px solid var(--border);
       border-radius: 6px;
       font-family: inherit;
       font-size: 0.95rem;
       background: #fafafa;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
     }
-    .radio-group {
+    .form-control:focus {
+      border-color: var(--gold);
+      background: #fff;
+    }
+    .options-list {
       display: flex;
-      gap: 20px;
-      margin-top: 8px;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
     }
-    .radio-group label {
-      font-weight: normal;
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.92rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    }
+    .option-item input[type="radio"],
+    .option-item input[type="checkbox"] {
+      margin-top: 4px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .input-line {
+      border: none;
+      border-bottom: 1px dashed var(--gold);
+      background: transparent;
+      padding: 4px 0;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      width: 100%;
     }
     .btn-submit {
       width: 100%;
@@ -180,6 +364,7 @@
       cursor: pointer;
       letter-spacing: 2px;
       transition: opacity 0.2s;
+      margin-top: 10px;
     }
     .btn-submit:disabled {
       opacity: 0.6;
@@ -194,246 +379,301 @@
       color: var(--primary);
       margin-bottom: 10px;
     }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 30px;
-      font-size: 0.8rem;
+      padding: 45px 24px 50px;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      font-family: 'Cinzel', serif;
+      background: #faf7f2;
     }
-    .btn-pdf {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: var(--primary, #8b5d5d);
-  border: 1px solid var(--primary, #8b5d5d);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  text-decoration: none;
-  font-family: inherit;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.btn-pdf:hover {
-  background-color: var(--primary, #8b5d5d);
-  color: #fff;
-}
+    .footer-fin {
+      font-family: var(--font-en);
+      letter-spacing: 3px;
+      font-size: 0.95rem;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .footer-message {
+      margin-bottom: 12px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+    .footer-names {
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
 
 <div class="wrapper">
-  <!-- Header / Hero -->
+  <!-- ① Header / Hero 雜誌刊頭 -->
   <header class="hero">
-    <div class="sub-tag">Our Wedding </div>
+    <div class="sub-tag">The Wedding Issue</div>
     <div class="greeting" id="guestGreeting">親愛的朋友</div>
     <h1 class="names">CHRISTY & TOM</h1>
     <div class="date-badge">2027 . 03 . 13</div>
 
-    <div class="countdown" id="countdown">
+    <!-- 倒數計時器 -->
+    <div class="countdown" id="countdown" aria-label="婚禮倒數">
       <div class="time-box"><span id="days">00</span><label>Days</label></div>
       <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
       <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
       <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
     </div>
+
+    <!-- 倒數計時器下方自訂圖片 -->
+    <div class="hero-custom-photo">
+      <!-- 請將 src 替換為您的圖片網址或檔案路徑 -->
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Christy & Tom Wedding Photo">
+    </div>
   </header>
 
-  <!-- Section: Wedding Details -->
-  <section>
-    <div class="sec-title">
-      <h2>THE WEDDING</h2>
-      <p>婚禮時間與地點</p>
-    </div>
-    <div class="info-item">
-      <h4>宴會時間</h4>
-      <p>2027 年 3 月 13 日（星期六）</p>
-      <p>12:00 恭候 ｜ 12:30 午宴入席</p>
-    </div>
-    <div class="info-item">
-      <h4>宴會地點</h4>
-      <p>WM Hotel 大禮堂</p>
-      <p>香港西貢惠民路二十八號</p>
-      <a href="https://www.google.com/maps/place/WM+Hotel/@22.3856919,114.2754333,19z/data=!4m9!3m8!1s0x340405bb214e8d89:0x9d4b28ea168cf11a!5m2!4m1!1i2!8m2!3d22.385398!4d114.2755701!16s%2Fg%2F11rgrs49lz?hl=ja&entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-map">開啟 Google 地圖</a>
-      <div>
-        <a 
-  href="https://www.wmhotel.hk/upload/files/1211458514.pdf" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  class="btn-pdf"
->
-  📄 WM酒店步行路線圖及公共交通
-</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: RSVP Form -->
-  <section id="rsvp">
-    <div class="sec-title">
-      <h2>Please reply</h2>
-      <p>出席回覆調查</p>
-    </div>
-
-    <form id="rsvpForm">
-      <div class="form-group">
-        <label for="name">您的姓名 *</label>
-        <input type="text" id="name" name="name" required placeholder="請填寫姓名">
+  <main>
+    <!-- No.01 Our Story (內容預留給您自行填寫) -->
+    <section class="section" id="story">
+      <div class="sec-head">
+        <p class="sec-no">No.01</p>
+        <p class="sec-en-label">Our Story</p>
+        <h2 class="section-title">我們的故事</h2>
       </div>
 
-      <div class="form-group">
-  <fieldset>
-    <legend>您能出席我們的婚宴嗎？<span class="required" style="color: red;">*</span></legend>
-    
-    <div class="radio-group">
-      <div class="option">
-        <label>
-          <input type="radio" name="attendance" value="能夠出席" required onclick="toggleAttend(true)">
-          能夠出席，到時見！
-        </label>
+      <ol class="timeline">
+        <li class="timeline-item">
+          <p class="timeline-date">2024</p>
+          <h3 class="timeline-title">故事的開始</h3>
+          <p class="timeline-desc">（此處為預留位置，您可以自行加入你們的相遇或甜蜜旅程文字...）</p>
+        </li>
+        <li class="timeline-item">
+          <p class="timeline-date">2026</p>
+          <h3 class="timeline-title">決定攜手一生</h3>
+          <p class="timeline-desc">（此處為預留位置，您可以填入求婚或決定共組家庭的故事...）</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- No.02 The Gallery (相片準備中) -->
+    <section class="section" id="gallery">
+      <div class="sec-head">
+        <p class="sec-no">No.02</p>
+        <p class="sec-en-label">The Gallery</p>
+        <h2 class="section-title">婚紗相集</h2>
       </div>
 
-      <div class="option">
-        <label>
-          <input type="radio" name="attendance" value="未能出席" onclick="toggleAttend(false)">
-          未能出席，在此祝福您們～
-        </label>
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-icon">📷</div>
+        <p>相片預備中，敬請期待</p>
+      </div>
+    </section>
+
+    <!-- No.03 The Day (婚禮資訊，已移除 Dress code) -->
+    <section class="section" id="details">
+      <div class="sec-head">
+        <p class="sec-no">No.03</p>
+        <p class="sec-en-label">The Day</p>
+        <h2 class="section-title">婚禮資訊</h2>
       </div>
 
-      <div class="option">
-        <label>
-          <input type="radio" name="attendance" value="暫時未肯定" onclick="toggleAttend(false)">
-          暫時未肯定
-        </label>
+      <div class="info-card">
+        <h4>宴會時間</h4>
+        <p>2027 年 3 月 13 日（星期六）</p>
+        <p>12:00 恭候 ｜ 12:30 午宴入席</p>
       </div>
-    </div>
-  </fieldset>
-</div>
 
-      <div id="attendDetails">
+      <div class="info-card">
+        <h4>宴會地點</h4>
+        <p>WM Hotel 大禮堂</p>
+        <p>香港西貢惠民路二十八號</p>
+      </div>
+    </section>
+
+    <!-- No.04 The Venue (宴客地點、地圖與交通指引) -->
+    <section class="section" id="venue">
+      <div class="sec-head">
+        <p class="sec-no">No.04</p>
+        <p class="sec-en-label">The Venue</p>
+        <h2 class="section-title">交通與地點</h2>
+      </div>
+
+      <div class="info-card">
+        <h4>WM Hotel 大禮堂</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">香港西貢惠民路 28 號</p>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://www.google.com/maps/place/WM+Hotel/@22.3856919,114.2754333,19z/data=!4m9!3m8!1s0x340405bb214e8d89:0x9d4b28ea168cf11a!5m2!4m1!1i2!8m2!3d22.385398!4d114.2755701!16s%2Fg%2F11rgrs49lz?hl=ja&entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-action btn-map">
+          開啟 Google 地圖導航
+        </a>
+        <a href="https://www.wmhotel.hk/upload/files/1211458514.pdf" target="_blank" rel="noopener noreferrer" class="btn-action btn-pdf">
+          📄 WM酒店步行路線圖及公共交通
+        </a>
+      </div>
+    </section>
+
+    <!-- 給賓客的小叮嚀 (自訂 Note 區塊) -->
+    <section class="section" id="notes">
+      <div class="sec-head">
+        <p class="sec-en-label">Reminders</p>
+        <h2 class="section-title">給賓客的小叮嚀</h2>
+      </div>
+
+      <div class="notice-card">
+        <p>• 為讓各位能順利入座並享受完整流程，敬請於 12:00～12:30 之間抵達會場。<br>
+           • 如需乘搭專車接送或預留車位，請在下方回覆表單中為我們標註，方便安排。</p>
+      </div>
+    </section>
+
+    <!-- No.05 RSVP 出席回覆表單 -->
+    <section class="section" id="rsvp">
+      <div class="sec-head">
+        <p class="sec-no">No.05</p>
+        <p class="sec-en-label">R.S.V.P.</p>
+        <h2 class="section-title">出席回覆調查</h2>
+      </div>
+
+      <form id="rsvpForm">
+        <!-- 姓名 -->
         <div class="form-group">
-          <label for="guests">出席總人數</label>
-          <select id="guests" name="guests">
-            <option value="1">1 位</option>
-            <option value="2">2 位</option>
-            <option value="3">3 位</option>
-            <option value="4">4 位</option>
-            <option value="4">5 位</option>
-            <option value="4">6 位</option>
-            <option value="4">7 位</option>
-            <option value="4">8 位</option>
-          </select>
+          <label class="form-label" for="name">您的姓名<span class="required">*</span></label>
+          <input type="text" id="name" name="name" class="form-control" required placeholder="請填寫姓名">
         </div>
 
+        <!-- 出席意願 -->
         <div class="form-group">
-  <fieldset>
-    <legend>您有食物敏感 / 是素食者嗎？<span class="required" style="color: red;">*</span></legend>
+          <fieldset>
+            <legend>您能出席我們的婚宴嗎？<span class="required">*</span></legend>
+            <div class="options-list">
+              <label class="option-item">
+                <input type="radio" name="attendance" value="能夠出席" required onclick="toggleAttend(true)">
+                能夠出席，到時見！
+              </label>
+              <label class="option-item">
+                <input type="radio" name="attendance" value="未能出席" onclick="toggleAttend(false)">
+                未能出席，在此祝福您們～
+              </label>
+              <label class="option-item">
+                <input type="radio" name="attendance" value="暫時未肯定" onclick="toggleAttend(false)">
+                暫時未肯定
+              </label>
+            </div>
+          </fieldset>
+        </div>
 
-    <div class="option">
-      <label>
-        <input type="checkbox" name="dietary_restrictions" value="none">
-        沒有
-      </label>
-    </div>
+        <!-- 出席詳細項目（選擇能夠出席時展開） -->
+        <div id="attendDetails" style="display: none;">
+          <!-- 出席總人數 -->
+          <div class="form-group">
+            <label class="form-label" for="guests">出席總人數</label>
+            <select id="guests" name="guests" class="form-control">
+              <option value="1">1 位</option>
+              <option value="2">2 位</option>
+              <option value="3">3 位</option>
+              <option value="4">4 位</option>
+              <option value="5">5 位</option>
+              <option value="6">6 位</option>
+              <option value="7">7 位</option>
+              <option value="8">8 位</option>
+            </select>
+          </div>
 
-    <div class="option">
-      <label>
-        <input type="checkbox" name="dietary_restrictions" value="has_restriction">
-        有食物敏感 / 是素食者 (請在下方列明，我們會盡力滿足)
-      </label>
-    </div>
+          <!-- 食物敏感 / 素食 -->
+          <div class="form-group">
+            <fieldset>
+              <legend>您有食物敏感 / 是素食者嗎？</legend>
+              <div class="options-list">
+                <label class="option-item">
+                  <input type="checkbox" name="dietary" value="沒有">
+                  沒有
+                </label>
+                <label class="option-item">
+                  <input type="checkbox" name="dietary" value="有食物敏感/素食">
+                  有食物敏感 / 是素食者 (請在下方列明，我們會盡力滿足)
+                </label>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <label class="option-item">
+                    <input type="checkbox" name="dietary" value="其他">
+                    其他：
+                  </label>
+                  <input type="text" name="dietary_other" class="input-line" placeholder="請在此說明...">
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
-    <div class="option other-option">
-      <label>
-        <input type="checkbox" name="dietary_restrictions" value="other">
-        其他:
-      </label>
-      <input type="text" name="dietary_restrictions_other" style="border: none; border-bottom: 1px dotted #888; outline: none;">
-    </div>
-  </fieldset>
-</div>
+          <!-- 預留車位 -->
+          <div class="form-group">
+            <fieldset>
+              <legend>
+                需要為您預留車位嗎？
+                <span class="sub-desc">(我們會在稍後時間向您確實)</span>
+              </legend>
+              <div class="options-list">
+                <label class="option-item">
+                  <input type="radio" name="parking" value="需要一個車位">
+                  需要一個車位
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="parking" value="不需要" checked>
+                  不需要
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- 旅遊巴接送 -->
+          <div class="form-group">
+            <fieldset>
+              <legend>婚宴完畢後，我們會安排旅遊巴接送賓客，您需要嗎？</legend>
+              <div class="options-list">
+                <label class="option-item">
+                  <input type="radio" name="shuttle_bus" value="需要（東鐵綫大學站）">
+                  需要，請送我到東鐵綫大學站
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="shuttle_bus" value="需要（觀塘綫彩虹站）">
+                  需要，請送我到觀塘綫彩虹站
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="shuttle_bus" value="不需要" checked>
+                  不需要
+                </label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- 祝福留言 -->
+        <div class="form-group">
+          <label class="form-label" for="message">給新人的祝福</label>
+          <textarea id="message" name="message" class="form-control" rows="3" placeholder="留下您溫暖的祝福..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">確認送出回覆</button>
+      </form>
+
+      <div class="success-box" id="successBox">
+        <h3>✓ 回覆已送達</h3>
+        <p>非常感謝您的回覆！我們期待在婚禮當天與您相見。</p>
       </div>
-      
-      <div class="form-group">
-  <fieldset>
-    <legend>
-      需要為您預留車位嗎？<br>
-      <small style="color: #666;">(我們會在稍後時間向您確實)</small>
-      <span class="required" style="color: red;">*</span>
-    </legend>
+    </section>
+  </main>
 
-    <div class="option">
-      <label>
-        <input type="radio" name="parking" value="1" required>
-        需要一個車位
-      </label>
-    </div>
-
-    <div class="option">
-      <label>
-        <input type="radio" name="parking" value="0">
-        不需要
-      </label>
-    </div>
-  </fieldset>
-</div>
-
-      <div class="form-group">
-  <fieldset>
-    <legend>
-      婚宴完畢後，我們會安排旅遊巴接送賓客，您需要嗎？
-      <span class="required" style="color: red;">*</span>
-    </legend>
-
-    <div class="option">
-      <label>
-        <input type="radio" name="shuttle_bus" value="university_station" required>
-        需要，請送我到東鐵綫大學站
-      </label>
-    </div>
-
-    <div class="option">
-      <label>
-        <input type="radio" name="shuttle_bus" value="choi_hung_station">
-        需要，請送我到觀塘綫彩虹站
-      </label>
-    </div>
-
-    <div class="option">
-      <label>
-        <input type="radio" name="shuttle_bus" value="none">
-        不需要
-      </label>
-    </div>
-  </fieldset>
-</div>
-      
-      <div class="form-group">
-        <label for="message">給新人的祝福</label>
-        <textarea id="message" name="message" rows="3" placeholder="留下您溫暖的祝福..."></textarea>
-      </div>
-
-      <button type="submit" class="btn-submit" id="submitBtn">確認送出回覆</button>
-    </form>
-
-    <div class="success-box" id="successBox">
-      <h3>✓ 回覆已送達</h3>
-      <p>非常感謝您的回覆！我們期待在婚禮當天與您相見。</p>
-    </div>
-  </section>
-
+  <!-- ⑦ Footer 結尾致謝 -->
   <footer>
-    WITH LOVE & GRATITUDE<br>
-    — FIN —
+    <p class="footer-fin">— fin —</p>
+    <p class="footer-message">謝謝您把這一天留給我們，期待與您見面。</p>
+    <p class="footer-names">梁曦日・李翠君 敬上</p>
   </footer>
 </div>
 
 <script>
-  // 1. 【填入您的 Google Apps Script Web App URL】
+  // 1. Google Apps Script Web App URL
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLI39Xh6BruzlIuD6gBIQD0XbbbNicCRyJ7JrKZRS30mxBnYieuMCy0LphTMIDnBWb/exec";
 
-  // 2. 婚禮目標日期 (年, 月-1, 日, 時, 分)
+  // 2. 婚禮目標日期 (2027-03-13 12:30)
   const weddingDate = new Date(2027, 2, 13, 12, 30, 0).getTime();
 
   // 3. 解析網址參數 ?to=賓客稱謂
@@ -444,7 +684,7 @@
 
   if (guestName) {
     greetingElem.textContent = `親愛的 ${guestName}`;
-    nameInput.value = guestName; // 自動填入表單姓名
+    nameInput.value = guestName;
   }
 
   // 4. 倒數計時器
@@ -463,8 +703,9 @@
   updateCountdown();
 
   // 5. 切換出席/不出席欄位顯示
-  function toggleAttend(attending) {
-    document.getElementById('attendDetails').style.display = attending ? 'block' : 'none';
+  function toggleAttend(isAttending) {
+    const details = document.getElementById('attendDetails');
+    details.style.display = isAttending ? 'block' : 'none';
   }
 
   // 6. 表單提交至 Google Sheets
@@ -477,20 +718,29 @@
     submitBtn.disabled = true;
     submitBtn.innerText = "傳送中...";
 
+    const isAttending = form.attendance.value === "能夠出席";
+
+    // 收集飲食偏好
+    const selectedDietary = Array.from(form.querySelectorAll('input[name="dietary"]:checked'))
+      .map(cb => cb.value);
+    if (form.dietary_other && form.dietary_other.value.trim() !== "") {
+      selectedDietary.push(`備註: ${form.dietary_other.value.trim()}`);
+    }
+
     const payload = {
       greeting: guestName || '',
       name: form.name.value,
       attendance: form.attendance.value,
-      guests: form.attendance.value === "一定出席" ? form.guests.value : 0,
-      vegetarian: form.attendance.value === "一定出席" ? form.vegetarian.value : 0,
-      phone: form.phone.value,
-      address: form.address.value,
+      guests: isAttending ? form.guests.value : 0,
+      dietary: isAttending ? selectedDietary.join(', ') : '',
+      parking: isAttending ? (form.parking ? form.parking.value : '') : '',
+      shuttle_bus: isAttending ? (form.shuttle_bus ? form.shuttle_bus.value : '') : '',
       message: form.message.value
     };
 
     fetch(SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // 避免跨域 CORS 阻擋
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     })
