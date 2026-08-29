@@ -283,12 +283,33 @@
       </div>
 
       <div class="form-group">
-        <label>出席意願 *</label>
-        <div class="radio-group">
-          <label><input type="radio" name="attendance" value="一定出席" checked onclick="toggleAttend(true)"> 一定出席</label>
-          <label><input type="radio" name="attendance" value="心意相隨（無法出席）" onclick="toggleAttend(false)"> 心意相隨</label>
-        </div>
+  <fieldset>
+    <legend>您能出席我們的婚宴嗎？<span class="required" style="color: red;">*</span></legend>
+    
+    <div class="radio-group">
+      <div class="option">
+        <label>
+          <input type="radio" name="attendance" value="能夠出席" required onclick="toggleAttend(true)">
+          能夠出席，到時見！
+        </label>
       </div>
+
+      <div class="option">
+        <label>
+          <input type="radio" name="attendance" value="未能出席" onclick="toggleAttend(false)">
+          未能出席，在此祝福您們～
+        </label>
+      </div>
+
+      <div class="option">
+        <label>
+          <input type="radio" name="attendance" value="暫時未肯定" onclick="toggleAttend(false)">
+          暫時未肯定
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
 
       <div id="attendDetails">
         <div class="form-group">
@@ -298,29 +319,96 @@
             <option value="2">2 位</option>
             <option value="3">3 位</option>
             <option value="4">4 位</option>
+            <option value="4">5 位</option>
+            <option value="4">6 位</option>
+            <option value="4">7 位</option>
+            <option value="4">8 位</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="vegetarian">其中素食人數</label>
-          <select id="vegetarian" name="vegetarian">
-            <option value="0">0 位</option>
-            <option value="1">1 位</option>
-            <option value="2">2 位</option>
-          </select>
-        </div>
+  <fieldset>
+    <legend>您有食物敏感 / 是素食者嗎？<span class="required" style="color: red;">*</span></legend>
+
+    <div class="option">
+      <label>
+        <input type="checkbox" name="dietary_restrictions" value="none">
+        沒有
+      </label>
+    </div>
+
+    <div class="option">
+      <label>
+        <input type="checkbox" name="dietary_restrictions" value="has_restriction">
+        有食物敏感 / 是素食者 (請在下方列明，我們會盡力滿足)
+      </label>
+    </div>
+
+    <div class="option other-option">
+      <label>
+        <input type="checkbox" name="dietary_restrictions" value="other">
+        其他:
+      </label>
+      <input type="text" name="dietary_restrictions_other" style="border: none; border-bottom: 1px dotted #888; outline: none;">
+    </div>
+  </fieldset>
+</div>
       </div>
+      
+      <div class="form-group">
+  <fieldset>
+    <legend>
+      需要為您預留車位嗎？<br>
+      <small style="color: #666;">(我們會在稍後時間向您確實)</small>
+      <span class="required" style="color: red;">*</span>
+    </legend>
+
+    <div class="option">
+      <label>
+        <input type="radio" name="parking" value="1" required>
+        需要一個車位
+      </label>
+    </div>
+
+    <div class="option">
+      <label>
+        <input type="radio" name="parking" value="0">
+        不需要
+      </label>
+    </div>
+  </fieldset>
+</div>
 
       <div class="form-group">
-        <label for="phone">聯絡電話 *</label>
-        <input type="tel" id="phone" name="phone" required placeholder="0912-345-678">
-      </div>
+  <fieldset>
+    <legend>
+      婚宴完畢後，我們會安排旅遊巴接送賓客，您需要嗎？
+      <span class="required" style="color: red;">*</span>
+    </legend>
 
-      <div class="form-group">
-        <label for="address">喜帖寄送地址（如需實體喜帖）</label>
-        <input type="text" id="address" name="address" placeholder="郵遞區號與完整地址">
-      </div>
+    <div class="option">
+      <label>
+        <input type="radio" name="shuttle_bus" value="university_station" required>
+        需要，請送我到東鐵綫大學站
+      </label>
+    </div>
 
+    <div class="option">
+      <label>
+        <input type="radio" name="shuttle_bus" value="choi_hung_station">
+        需要，請送我到觀塘綫彩虹站
+      </label>
+    </div>
+
+    <div class="option">
+      <label>
+        <input type="radio" name="shuttle_bus" value="none">
+        不需要
+      </label>
+    </div>
+  </fieldset>
+</div>
+      
       <div class="form-group">
         <label for="message">給新人的祝福</label>
         <textarea id="message" name="message" rows="3" placeholder="留下您溫暖的祝福..."></textarea>
