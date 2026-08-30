@@ -66,14 +66,14 @@
       margin-bottom: 20px;
       font-weight: 600;
     }
-.names {
-  font-family: 'Cinzel', serif; /* 與 Our Wedding 相同字體 */
-  font-weight: 400;             /* 不需粗體（常規粗細） */
-  font-size: 2.1rem;            /* 保留原有大小 */
-  letter-spacing: 3px;
-  color: #966f3d;               /* 比原金色 #b38b59 略深一點的雅緻深金色 */
-  margin-bottom: 8px;
-}
+    .names {
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      font-size: 2.1rem;
+      letter-spacing: 3px;
+      color: #966f3d;
+      margin-bottom: 8px;
+    }
     .date-badge {
       display: inline-block;
       border-top: 1px solid var(--gold);
@@ -270,11 +270,14 @@
     /* No.03 Details 婚禮資訊 */
     .info-card {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    .info-card:last-child {
+      margin-bottom: 0;
     }
     .info-card h4 {
       color: var(--gold);
-      font-size: 0.95rem;
+      font-size: 1rem;
       letter-spacing: 1px;
       margin-bottom: 4px;
     }
@@ -317,15 +320,32 @@
       color: #fff;
     }
 
-    /* 小叮嚀 Note */
+    /* 小提示 Note */
     .notice-card {
       background: #faf7f2;
       border-left: 3px solid var(--gold);
-      padding: 16px 18px;
+      padding: 18px 20px;
       border-radius: 0 8px 8px 0;
       font-size: 0.9rem;
-      line-height: 1.7;
+      line-height: 1.8;
       color: var(--text-main);
+    }
+    .notice-card ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .notice-card li {
+      position: relative;
+      padding-left: 16px;
+    }
+    .notice-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: bold;
     }
 
     /* No.05 RSVP 表單 */
@@ -561,30 +581,36 @@
         <h2 class="section-title">婚禮資訊</h2>
       </div>
 
+      <!-- 日期放在最前 -->
       <div class="info-card">
-        <h4>宴會時間</h4>
-        <p>2027 年 3 月 13 日（星期六）</p>
-        <p>11:30am 恭候 ｜ 12:30pm 午宴入席</p>
+        <p style="font-size: 1.05rem; font-weight: 600; color: var(--primary);">2027 年 3 月 13 日（星期六）</p>
       </div>
 
+      <!-- 證婚儀式 -->
       <div class="info-card">
-        <h4>宴會地點</h4>
-        <p>WM Hotel 大禮堂</p>
-        <p>香港西貢惠民路二十八號</p>
+        <h4>證婚儀式</h4>
+        <p>時間：10:30am 開始</p>
+        <p>地點：WM Hotel 小禮堂</p>
+      </div>
+
+      <!-- 午宴 -->
+      <div class="info-card">
+        <h4>午宴</h4>
+        <p>時間：11:30am 恭候 ｜ 12:30pm 午宴入席</p>
+        <p>地點：WM Hotel 大禮堂</p>
       </div>
     </section>
 
-    <!-- No.04 The Venue -->
+    <!-- No.04 Transportation -->
     <section class="section" id="venue">
       <div class="sec-head">
         <p class="sec-no">No.04</p>
-        <p class="sec-en-label">The Venue</p>
-        <h2 class="section-title">交通與地點</h2>
+        <p class="sec-en-label">Transportation</p>
+        <h2 class="section-title">交通</h2>
       </div>
 
       <div class="info-card">
-        <h4>WM Hotel 大禮堂</h4>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">香港西貢惠民路 28 號</p>
+        <h4>WM Hotel</h4>
       </div>
 
       <div class="btn-group">
@@ -597,16 +623,19 @@
       </div>
     </section>
 
-    <!-- 給賓客的小叮嚀 -->
+    <!-- 給你的小提示 -->
     <section class="section" id="notes">
       <div class="sec-head">
         <p class="sec-en-label">Reminders</p>
-        <h2 class="section-title">給賓客的小叮嚀</h2>
+        <h2 class="section-title">給你的小提示</h2>
       </div>
 
       <div class="notice-card">
-        <p>• 為讓各位能順利入座並享受完整流程，敬請於 11:30～12:30 之間抵達會場。<br>
-           • 如需乘搭專車接送或預留車位，請在下方回覆表單中為我們標註，方便安排。</p>
+        <ul>
+          <li>由於證婚儀式場地所限，請有意觀看的賓客於下方回覆通知，以作安排。</li>
+          <li>證婚儀式及午宴場地都有無障礙通道，有需要可向我們了解路線。</li>
+          <li>除預留停車場車位外，酒店設有超過 270 個車位，仍有意泊車的賓客可參考以下收費：時租 $28 正；12 小時泊車（限單次出入）$130 正。</li>
+        </ul>
       </div>
     </section>
 
@@ -648,6 +677,27 @@
 
         <!-- 出席詳細項目（選擇能夠出席時展開） -->
         <div id="attendDetails" style="display: none;">
+          <!-- 證婚儀式出席問題 (新加入) -->
+          <div class="form-group">
+            <fieldset>
+              <legend>您會到場觀看證婚儀式嗎？<span class="sub-desc">(10:30am 開始 ｜ WM Hotel 小禮堂)</span></legend>
+              <div class="options-list">
+                <label class="option-item">
+                  <input type="radio" name="ceremony" value="會出席證婚" checked>
+                  會
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="ceremony" value="不會出席證婚">
+                  不會
+                </label>
+                <label class="option-item">
+                  <input type="radio" name="ceremony" value="未確定出席證婚">
+                  未確定
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
           <!-- 出席總人數 -->
           <div class="form-group">
             <label class="form-label" for="guests">出席總人數</label>
@@ -762,8 +812,8 @@
   // 1. Google Apps Script Web App URL
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzWSeF8JR6XaeASDrVgaNOpialmmYeCyQwZMdoXNFqxlxZvfOtT8tYMXECalGL9nHLv/exec";
 
-  // 2. 婚禮目標日期 (2027-03-13 11:30 恭候)
-  const weddingDate = new Date(2027, 2, 13, 11, 30, 0).getTime();
+  // 2. 婚禮目標日期 (2027-03-13 10:30 證婚儀式開始)
+  const weddingDate = new Date(2027, 2, 13, 10, 30, 0).getTime();
 
   // 3. 解析網址參數 ?to=賓客稱謂
   const urlParams = new URLSearchParams(window.location.search);
@@ -833,6 +883,7 @@
       greeting: guestName || '',
       name: form.name.value,
       attendance: form.attendance.value,
+      ceremony: isAttending && form.ceremony ? form.ceremony.value : '', // 新增證婚出席
       guests: isAttending ? form.guests.value : 0,
       dietary: isAttending ? selectedDietary.join(' | ') : '',
       parking: isAttending && form.parking ? form.parking.value : '',
