@@ -476,6 +476,58 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
+    /* 小提示 Note 專屬樣式 */
+.notice-card {
+  background: #faf7f2;
+  border-left: 3px solid var(--gold);
+  padding: 22px 20px;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notice-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notice-subtitle {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.notice-item p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-main);
+}
+
+.parking-rates {
+  list-style: none;
+  margin-top: 6px;
+  padding-left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.parking-rates li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  position: relative;
+}
+
+.parking-rates li::before {
+  content: "•";
+  position: absolute;
+  left: -12px;
+  color: var(--gold);
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -624,20 +676,33 @@
     </section>
 
     <!-- 給你的小提示 -->
-    <section class="section" id="notes">
-      <div class="sec-head">
-        <p class="sec-en-label">Reminders</p>
-        <h2 class="section-title">給你的小提示</h2>
-      </div>
+<section class="section" id="notes">
+  <div class="sec-head">
+    <p class="sec-en-label">Reminders</p>
+    <h2 class="section-title">給你的小提示</h2>
+  </div>
 
-      <div class="notice-card">
-        <ul>
-          <li>由於證婚儀式場地所限，請有意觀看的賓客於下方回覆通知，以作安排。</li>
-          <li>證婚儀式及午宴場地都有無障礙通道，有需要可向我們了解路線。</li>
-          <li>除預留停車場車位外，酒店設有超過 270 個車位，仍有意泊車的賓客可參考以下收費：時租 $28 正；12 小時泊車（限單次出入）$130 正。</li>
-        </ul>
-      </div>
-    </section>
+  <div class="notice-card">
+    <div class="notice-item">
+      <h4 class="notice-subtitle">證婚儀式觀禮</h4>
+      <p>我們非常期待與大家分享這份喜悅！惟因證婚場地座位及人數上限所限，如欲出席觀禮，請於下方回覆告知，以便我們預先協調及妥善安排座位。</p>
+    </div>
+
+    <div class="notice-item">
+      <h4 class="notice-subtitle">無障礙設施</h4>
+      <p>證婚儀式及午宴場地均設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。</p>
+    </div>
+
+    <div class="notice-item">
+      <h4 class="notice-subtitle">交通及泊車資訊</h4>
+      <p>除新人預留車位外（數量有限），酒店停車場提供逾 270 個公眾車位，自駕親友可參考以下收費：</p>
+      <ul class="parking-rates">
+        <li><strong>時租：</strong>每小時 HK$28</li>
+        <li><strong>12 小時泊車（單次出入）：</strong>HK$130</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
     <!-- No.05 RSVP 表單 -->
     <section class="section" id="rsvp">
