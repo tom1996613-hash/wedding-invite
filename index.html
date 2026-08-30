@@ -528,6 +528,33 @@
   color: var(--gold);
   font-weight: bold;
 }
+    /* 故事章節相片容器（拍立得微圓角與柔和陰影） */
+.story-photo-wrap {
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(232, 226, 216, 0.7);
+  background: #fdfbf7;
+}
+
+/* 橫相通用比例 (3:2) */
+.story-photo-wrap.landscape img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  display: block;
+  object-fit: cover;
+}
+
+/* 直相專屬比例 (3:4 雜誌直幅，對焦在人物上半身) */
+.story-photo-wrap.portrait img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: block;
+  object-fit: cover;
+  object-position: center 20%;
+}
   </style>
 </head>
 <body>
@@ -557,59 +584,76 @@
 
   <main>
     <!-- No.01 Our Story -->
-    <section class="story-section" id="story">
-      <div class="story-head">
-        <p class="story-en-sub">Our Story</p>
-        <h2 class="story-title">我們的故事</h2>
-        <div class="story-divider"></div>
+    <!-- No.01 Our Story -->
+<section class="story-section" id="story">
+  <div class="story-head">
+    <p class="story-en-sub">Our Story</p>
+    <h2 class="story-title">我們的故事</h2>
+    <div class="story-divider"></div>
+  </div>
+
+  <ol class="story-timeline">
+    <!-- 2021.08 初遇 (4人海洋公園 - 橫相) -->
+    <li class="story-item">
+      <div class="story-year">2021.08</div>
+      <div class="story-content">
+        <h3 class="story-item-title">初遇</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
+          <div class="story-photo-wrap landscape">
+            <img src="./images/story_202108.jpg" alt="2021.08 初遇">
+          </div>
+        </div>
       </div>
+    </li>
 
-      <ol class="story-timeline">
-        <li class="story-item">
-          <div class="story-year">2021.08</div>
-          <div class="story-content">
-            <h3 class="story-item-title">初遇</h3>
-            <div class="story-desc-wrap">
-              <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
-            </div>
+    <!-- 2021.09 靠近 (草地合照 - 橫相) -->
+    <li class="story-item">
+      <div class="story-year">2021.09</div>
+      <div class="story-content">
+        <h3 class="story-item-title">靠近</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
+          <div class="story-photo-wrap landscape">
+            <img src="./images/story_202109.jpg" alt="2021.09 靠近">
           </div>
-        </li>
+        </div>
+      </div>
+    </li>
 
-        <li class="story-item">
-          <div class="story-year">2021.09</div>
-          <div class="story-content">
-            <h3 class="story-item-title">靠近</h3>
-            <div class="story-desc-wrap">
-              <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
-            </div>
+    <!-- 2023.08 築巢 (新家合照 - 直相) -->
+    <li class="story-item">
+      <div class="story-year">2023.08</div>
+      <div class="story-content">
+        <h3 class="story-item-title">築巢</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
+          <div class="story-photo-wrap portrait">
+            <img src="./images/story_202308.jpg" alt="2023.08 築巢">
           </div>
-        </li>
+        </div>
+      </div>
+    </li>
 
-        <li class="story-item">
-          <div class="story-year">2023.08</div>
-          <div class="story-content">
-            <h3 class="story-item-title">築巢</h3>
-            <div class="story-desc-wrap">
-              <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
-            </div>
+    <!-- 2026.02 承諾 (求婚戒指 - 橫相) -->
+    <li class="story-item">
+      <div class="story-year">2026.02</div>
+      <div class="story-content">
+        <h3 class="story-item-title">承諾</h3>
+        <div class="story-desc-wrap">
+          <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
+          <div class="story-photo-wrap landscape">
+            <img src="./images/story_202602.jpg" alt="2026.02 承諾">
           </div>
-        </li>
+        </div>
+      </div>
+    </li>
+  </ol>
 
-        <li class="story-item">
-          <div class="story-year">2026.02</div>
-          <div class="story-content">
-            <h3 class="story-item-title">承諾</h3>
-            <div class="story-desc-wrap">
-              <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
-            </div>
-          </div>
-        </li>
-      </ol>
-
-      <aside class="story-pull-quote">
-        <p>&ldquo;and so, the story begins.&rdquo;</p>
-      </aside>
-    </section>
+  <aside class="story-pull-quote">
+    <p>&ldquo;and so, the story begins.&rdquo;</p>
+  </aside>
+</section>
 
     <!-- No.02 The Gallery -->
     <section class="section" id="gallery">
