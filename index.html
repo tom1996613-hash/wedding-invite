@@ -555,6 +555,42 @@
   object-fit: cover;
   object-position: center 20%;
 }
+    /* 給你的小提示：標題與右側小貼圖排版 */
+.notes-sec-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.notes-head-text {
+  flex: 1;
+}
+
+.notes-sticker-wrap {
+  width: 95px;
+  min-width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 4px;
+  box-shadow: 0 4px 15px rgba(179, 139, 89, 0.18);
+  border: 1px dashed var(--gold);
+  transform: rotate(3deg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notes-sticker-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -720,10 +756,17 @@
     </section>
 
     <!-- 給你的小提示 -->
+<!-- 給你的小提示 -->
 <section class="section" id="notes">
-  <div class="sec-head">
-    <p class="sec-en-label">Reminders</p>
-    <h2 class="section-title">給你的小提示</h2>
+  <div class="notes-sec-head">
+    <div class="notes-head-text">
+      <p class="sec-en-label">Reminders</p>
+      <h2 class="section-title">給你的小提示</h2>
+    </div>
+    <!-- 右側似顏繪小貼圖 -->
+    <div class="notes-sticker-wrap">
+      <img src="./images/sticker_couple.png" alt="Christy & Tom Illustration">
+    </div>
   </div>
 
   <div class="notice-card">
