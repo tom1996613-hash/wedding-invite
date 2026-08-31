@@ -428,25 +428,49 @@
       line-height: 1.75;
       color: var(--text-main);
     }
-    .parking-rates {
-      list-style: none;
-      margin-top: 6px;
-      padding-left: 14px;
+    .notice-subtext {
+      font-size: 0.88rem !important;
+      color: var(--text-muted) !important;
+      margin-top: 4px;
+    }
+    .parking-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      justify-content: center;
+      gap: 2px;
     }
-    .parking-rates li {
-      font-size: 0.88rem;
+    .pricing-type {
+      font-size: 0.76rem;
       color: var(--text-muted);
-      position: relative;
+      letter-spacing: 0.5px;
     }
-    .parking-rates li::before {
-      content: "•";
-      position: absolute;
-      left: -12px;
-      color: var(--gold);
-      font-weight: bold;
+    .pricing-amount {
+      font-family: var(--font-en);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .pricing-amount small {
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: var(--text-muted);
+    }
+    @media (max-width: 380px) {
+      .parking-pricing-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* No.05 RSVP 表單 */
@@ -640,58 +664,6 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
-    /* 泊車收費卡片排版 */
-.notice-subtext {
-  font-size: 0.88rem !important;
-  color: var(--text-muted) !important;
-  margin-top: 4px;
-}
-
-.parking-pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.pricing-card {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-}
-
-.pricing-type {
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
-}
-
-.pricing-amount {
-  font-family: var(--font-en);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.pricing-amount small {
-  font-size: 0.75rem;
-  font-weight: normal;
-  color: var(--text-muted);
-}
-
-/* 手機版自適應 */
-@media (max-width: 380px) {
-  .parking-pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
   </style>
 </head>
 <body>
@@ -876,22 +848,22 @@
         </div>
 
         <div class="notice-item">
-  <h4 class="notice-subtitle">交通及泊車資訊</h4>
-  <p>為方便各位賓客出席，我們會盡力安排<strong>預留車位（享 3 小時免費泊車）</strong>。因免費車位數量有限，如未能成功預留敬請見諒。</p>
-  <p class="notice-subtext">自駕親友亦可自費使用酒店室內停車場（逾 270 個車位）：</p>
-  
-  <!-- 精緻收費小卡牌 -->
-  <div class="parking-pricing-grid">
-    <div class="pricing-card">
-      <span class="pricing-type">時租收費</span>
-      <span class="pricing-amount">HK$28 <small>/ 小時</small></span>
-    </div>
-    <div class="pricing-card">
-      <span class="pricing-type">12 小時泊車 (單次出入)</span>
-      <span class="pricing-amount">HK$130</span>
-    </div>
-  </div>
-</div>
+          <h4 class="notice-subtitle">交通及泊車資訊</h4>
+          <p>為方便各位賓客出席，我們會盡力安排<strong>預留車位（享 3 小時免費泊車）</strong>。因免費車位數量有限，如未能成功預留敬請見諒。</p>
+          <p class="notice-subtext">自駕親友亦可自費使用酒店室內停車場（逾 270 個車位）：</p>
+          
+          <div class="parking-pricing-grid">
+            <div class="pricing-card">
+              <span class="pricing-type">時租收費</span>
+              <span class="pricing-amount">HK$28 <small>/ 小時</small></span>
+            </div>
+            <div class="pricing-card">
+              <span class="pricing-type">12 小時泊車 (單次出入)</span>
+              <span class="pricing-amount">HK$130</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- No.05 出席回覆調查 -->
@@ -935,9 +907,10 @@
             </div>
           </fieldset>
         </div>
-<!-- 出席詳細項目（選擇能夠出席時展開） -->
+
+        <!-- 出席詳細項目（選擇能夠出席時展開） -->
         <div id="attendDetails" style="display: none;">
-                <!-- 出席總人數 -->
+          <!-- 出席總人數 -->
           <div class="form-group">
             <label class="form-label" for="guests">出席人數</label>
             <select id="guests" name="guests" class="form-control">
@@ -1010,12 +983,17 @@
                 <span class="sub-desc">(我們會先與場地安排並在稍後時間與您確認車位預留情況)</span>
               </legend>
               <div class="options-list">
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <label class="option-item">
+                    <input type="radio" id="parkingYes" name="parking" value="需要預留" onclick="toggleCarPlate(true)">
+                    需要預留
+                  </label>
+                  <div id="carPlateWrap" style="display: none; padding-left: 24px;">
+                    <input type="text" id="carPlate" name="car_plate" class="input-line" placeholder="請填寫車牌號碼 (必填，例如：AB 1234)..." style="text-transform: uppercase;">
+                  </div>
+                </div>
                 <label class="option-item">
-                  <input type="radio" name="parking" value="需要預留">
-                  需要預留
-                </label>
-                <label class="option-item">
-                  <input type="radio" name="parking" value="不需要" checked>
+                  <input type="radio" id="parkingNo" name="parking" value="不需要" checked onclick="toggleCarPlate(false)">
                   不需要
                 </label>
               </div>
@@ -1093,8 +1071,8 @@
   // 1. Google Apps Script Web App URL
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzWSeF8JR6XaeASDrVgaNOpialmmYeCyQwZMdoXNFqxlxZvfOtT8tYMXECalGL9nHLv/exec";
 
-  // 2. 婚禮目標日期 (2027-03-13 10:30 證婚儀式開始)
-  const weddingDate = new Date(2027, 2, 13, 10, 30, 0).getTime();
+  // 2. 婚禮目標日期 (2027-03-13 11:00 證婚儀式開始)
+  const weddingDate = new Date(2027, 2, 13, 11, 0, 0).getTime();
 
   // 3. 解析網址參數 ?to=賓客稱謂
   const urlParams = new URLSearchParams(window.location.search);
@@ -1140,7 +1118,22 @@
     details.style.display = isAttending ? 'block' : 'none';
   }
 
-  // 6. 飲食偏好選項互相排斥邏輯
+  // 6. 切換車牌輸入欄位展開與必填
+  function toggleCarPlate(isNeed) {
+    const carPlateWrap = document.getElementById('carPlateWrap');
+    const carPlate = document.getElementById('carPlate');
+    if (isNeed) {
+      carPlateWrap.style.display = 'block';
+      carPlate.required = true;
+      carPlate.focus();
+    } else {
+      carPlateWrap.style.display = 'none';
+      carPlate.required = false;
+      carPlate.value = '';
+    }
+  }
+
+  // 7. 飲食偏好選項互相排斥邏輯
   const dietaryNone = document.getElementById('dietaryNone');
   const dietaryAllergy = document.getElementById('dietaryAllergy');
   const dietaryVeg = document.getElementById('dietaryVeg');
@@ -1166,17 +1159,30 @@
     });
   }
 
-  // 7. 表單提交至 Google Sheets
+  // 8. 表單提交至 Google Sheets
   const form = document.getElementById('rsvpForm');
   const submitBtn = document.getElementById('submitBtn');
   const successBox = document.getElementById('successBox');
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.innerText = "傳送中...";
 
     const isAttending = form.attendance.value === "能夠出席";
+
+    // 驗證車牌（若選擇需要預留車位，車牌不可為空白）
+    let parkingValue = "不需要";
+    if (isAttending && form.parking && form.parking.value === "需要預留") {
+      const plateVal = form.car_plate ? form.car_plate.value.trim().toUpperCase() : '';
+      if (!plateVal) {
+        alert('請填寫車牌號碼，以便我們為您登記預留車位。');
+        if (form.car_plate) form.car_plate.focus();
+        return;
+      }
+      parkingValue = `需要預留（車牌: ${plateVal}）`;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = "傳送中...";
 
     // 收集選取的飲食偏好
     const selectedDietary = [];
@@ -1204,7 +1210,7 @@
       ceremony: isAttending && form.ceremony ? form.ceremony.value : '',
       guests: isAttending ? form.guests.value : 0,
       dietary: isAttending ? selectedDietary.join(' | ') : '',
-      parking: isAttending && form.parking ? form.parking.value : '',
+      parking: isAttending ? parkingValue : '',
       shuttle_bus: isAttending && form.shuttle_bus ? form.shuttle_bus.value : '',
       message: form.message.value.trim()
     };
