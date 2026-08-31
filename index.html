@@ -748,7 +748,7 @@
 
       <div class="venue-card">
         <h4>證婚儀式</h4>
-        <p><strong>時間：</strong>10:30am 開始</p>
+        <p><strong>時間：</strong>11:00am 開始</p>
         <p><strong>地點：</strong>WM Hotel 小禮堂</p>
         <div class="venue-photo-wrap">
           <img src="./images/venue_chapel.jpeg" alt="WM Hotel 小禮堂實景">
@@ -757,7 +757,7 @@
 
       <div class="venue-card">
         <h4>午宴</h4>
-        <p><strong>時間：</strong>11:30am 恭候 ｜ 12:30pm 午宴入席</p>
+        <p><strong>時間：</strong>11:30am 恭候 ｜ 12:00pm 午宴入席</p>
         <p><strong>地點：</strong>WM Hotel 大禮堂</p>
         <div class="venue-photo-wrap">
           <img src="./images/venue_ballroom.jpeg" alt="WM Hotel 大禮堂實景">
@@ -814,7 +814,7 @@
 
       <div class="notice-card">
         <div class="notice-item">
-          <h4 class="notice-subtitle">證婚儀式觀禮</h4>
+          <h4 class="notice-subtitle">證婚儀式</h4>
           <p>我們非常期待與大家分享這份喜悅！惟證婚場地人數所限，如欲觀禮，請於下方回覆告知，以便我們預先協調及妥善安排座位。</p>
         </div>
 
@@ -825,7 +825,7 @@
 
         <div class="notice-item">
           <h4 class="notice-subtitle">交通及泊車資訊</h4>
-          <p>除少量預留車位外（數量有限），酒店停車場提供逾 270 個公眾車位，自駕親友可參考以下收費：</p>
+          <p>為方便各位賓客出席，我們會盡力安排預留車位（享 3 小時免費泊車）。因免費車位數量有限，如未能成功預留敬請見諒。自駕前往的賓客亦可自費使用酒店室內停車場（逾 270 個車位），收費詳情請參考下方：</p>
           <ul class="parking-rates">
             <li><strong>時租：</strong>每小時 HK$28</li>
             <li><strong>12 小時泊車（單次出入）：</strong>HK$130</li>
@@ -858,7 +858,7 @@
         <!-- 出席意願 -->
         <div class="form-group">
           <fieldset>
-            <legend>您能出席我們的婚宴嗎？<span class="required">*</span></legend>
+            <legend>您能出席我們的結婚午宴嗎？<span class="required">*</span></legend>
             <div class="options-list">
               <label class="option-item">
                 <input type="radio" name="attendance" value="能夠出席" required onclick="toggleAttend(true)">
@@ -875,13 +875,27 @@
             </div>
           </fieldset>
         </div>
-
-        <!-- 出席詳細項目（選擇能夠出席時展開） -->
+<!-- 出席詳細項目（選擇能夠出席時展開） -->
         <div id="attendDetails" style="display: none;">
+                <!-- 出席總人數 -->
+          <div class="form-group">
+            <label class="form-label" for="guests">出席人數</label>
+            <select id="guests" name="guests" class="form-control">
+              <option value="1">1 位</option>
+              <option value="2">2 位</option>
+              <option value="3">3 位</option>
+              <option value="4">4 位</option>
+              <option value="5">5 位</option>
+              <option value="6">6 位</option>
+              <option value="7">7 位</option>
+              <option value="8">8 位</option>
+            </select>
+          </div>
+        
           <!-- 證婚儀式出席問題 -->
           <div class="form-group">
             <fieldset>
-              <legend>您會到場觀看證婚儀式嗎？<span class="sub-desc">(10:30am 開始 ｜ WM Hotel 小禮堂)</span></legend>
+              <legend>您會參與證婚儀式嗎？<span class="sub-desc">(10:30am 開始 ｜ WM Hotel 小禮堂)</span></legend>
               <div class="options-list">
                 <label class="option-item">
                   <input type="radio" name="ceremony" value="會出席證婚" checked>
@@ -897,21 +911,6 @@
                 </label>
               </div>
             </fieldset>
-          </div>
-
-          <!-- 出席總人數 -->
-          <div class="form-group">
-            <label class="form-label" for="guests">出席總人數</label>
-            <select id="guests" name="guests" class="form-control">
-              <option value="1">1 位</option>
-              <option value="2">2 位</option>
-              <option value="3">3 位</option>
-              <option value="4">4 位</option>
-              <option value="5">5 位</option>
-              <option value="6">6 位</option>
-              <option value="7">7 位</option>
-              <option value="8">8 位</option>
-            </select>
           </div>
 
           <!-- 食物敏感 / 飲食偏好 -->
@@ -1001,7 +1000,7 @@
         <h3>✓ 回覆已經送出</h3>
         <p class="success-desc">
           非常感謝您的回覆！<br>
-          如有任何更改，歡迎隨時與我們聯絡。
+          如有任何更改或疑問，歡迎隨時與我們聯絡。
         </p>
         <p class="success-highlight">See You Soon！到時見！</p>
       </div>
