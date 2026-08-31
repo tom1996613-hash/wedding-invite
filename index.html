@@ -85,7 +85,6 @@
       font-size: 0.95rem;
     }
 
-    /* 刊頭中間的不透明圖片 */
     .hero-photo-banner {
       width: 100%;
       max-width: 460px;
@@ -94,7 +93,6 @@
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
-
     .hero-photo-banner img {
       width: 100%;
       height: auto;
@@ -109,7 +107,6 @@
       gap: 12px;
       margin-top: 25px;
     }
-
     .time-box {
       background: var(--bg-color);
       padding: 8px 12px;
@@ -117,7 +114,6 @@
       min-width: 58px;
       border: 1px solid var(--border);
     }
-
     .time-box span {
       display: block;
       font-family: var(--font-en);
@@ -126,7 +122,6 @@
       color: var(--primary);
       line-height: 1.2;
     }
-
     .time-box label {
       font-size: 0.7rem;
       color: var(--text-muted);
@@ -166,9 +161,7 @@
     }
 
     /* No.01 Our Story */
-    .story-head {
-      margin-bottom: 40px;
-    }
+    .story-head { margin-bottom: 40px; }
     .story-en-sub {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
@@ -213,9 +206,7 @@
     .story-item:nth-child(even) .story-year {
       padding-left: 20px;
     }
-    .story-content {
-      width: 62%;
-    }
+    .story-content { width: 62%; }
     .story-item-title {
       font-size: 1.1rem;
       font-weight: 600;
@@ -247,33 +238,33 @@
       color: var(--text-muted);
       letter-spacing: 1px;
     }
-
-    /* No.02 Gallery 預備中 */
-    .gallery-placeholder {
-      background: #faf8f5;
-      border: 1px dashed var(--border);
+    .story-photo-wrap {
+      margin-top: 14px;
+      width: 100%;
       border-radius: 8px;
-      padding: 40px 20px;
-      text-align: center;
-      color: var(--text-muted);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      border: 1px solid rgba(232, 226, 216, 0.7);
+      background: #fdfbf7;
     }
-    .gallery-placeholder-icon {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      opacity: 0.7;
+    .story-photo-wrap.landscape img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      display: block;
+      object-fit: cover;
     }
-    .gallery-placeholder p {
-      font-size: 0.95rem;
-      letter-spacing: 1px;
+    .story-photo-wrap.portrait img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      display: block;
+      object-fit: cover;
+      object-position: center 20%;
     }
 
-    /* No.03 Details 婚禮資訊 */
+    /* No.02 Details 婚禮資訊 */
     .info-card {
       text-align: center;
       margin-bottom: 24px;
-    }
-    .info-card:last-child {
-      margin-bottom: 0;
     }
     .info-card h4 {
       color: var(--gold);
@@ -281,12 +272,70 @@
       letter-spacing: 1px;
       margin-bottom: 4px;
     }
-    .info-card p {
-      font-size: 0.95rem;
-      color: var(--text-main);
+    .venue-card {
+      background: #faf8f5;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 18px;
+      margin-bottom: 22px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
+    .venue-card:last-child { margin-bottom: 0; }
+    .venue-card h4 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .venue-card p {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    .venue-photo-wrap {
+      margin-top: 14px;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(232, 226, 216, 0.8);
+      background: #ffffff;
+    }
+    .venue-photo-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 220px;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .venue-photo-wrap img:hover { transform: scale(1.02); }
 
-    /* No.04 Venue 交通與地點 */
+    /* No.03 Venue 交通與地點 */
+    .venue-address {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: -6px;
+      margin-bottom: 12px;
+    }
+    .map-container {
+      width: 100%;
+      height: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+      margin: 18px 0 20px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -295,71 +344,114 @@
       margin-top: 20px;
     }
     .btn-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 11px 16px;          /* 縮小左右內距，留出足夠空間 */
-  border-radius: 25px;
-  font-size: 0.82rem;           /* 微調字體至 0.82rem */
-  letter-spacing: 0.5px;        /* 微調字距 */
-  text-decoration: none;
-  transition: all 0.3s ease;
-  text-align: center;
-  width: 90%;
-  max-width: 320px;            /* 稍微放寬最大寬度 */
-  white-space: nowrap;         /* 強制文字一行顯示，不自動換行 */
-}
-    .btn-map {
-      background: var(--primary);
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 25px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: 90%;
+      max-width: 320px;
+      white-space: nowrap;
     }
+    .btn-map { background: var(--primary); color: #fff; }
     .btn-pdf {
       background: #fff;
       color: var(--primary);
       border: 1px solid var(--primary);
     }
-    .btn-pdf:hover {
-      background: var(--primary);
-      color: #fff;
-    }
+    .btn-pdf:hover { background: var(--primary); color: #fff; }
 
-    /* 小提示 Note */
+    /* No.04 給您的小提醒 */
+    .notes-sec-head {
+      position: relative;
+      text-align: center;
+      margin-bottom: 30px;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .notes-head-text { width: 100%; }
+    .notes-sticker-wrap {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(4deg);
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 3px;
+      box-shadow: 0 4px 12px rgba(179, 139, 89, 0.2);
+      border: 1px dashed var(--gold);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .notes-sticker-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
     .notice-card {
       background: #faf7f2;
       border-left: 3px solid var(--gold);
-      padding: 18px 20px;
+      padding: 22px 20px;
       border-radius: 0 8px 8px 0;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: var(--text-main);
-    }
-    .notice-card ul {
-      list-style-type: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
     }
-    .notice-card li {
+    .notice-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .notice-subtitle {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+    .notice-item p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+    .parking-rates {
+      list-style: none;
+      margin-top: 6px;
+      padding-left: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .parking-rates li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
       position: relative;
-      padding-left: 16px;
     }
-    .notice-card li::before {
+    .parking-rates li::before {
       content: "•";
       position: absolute;
-      left: 0;
+      left: -12px;
       color: var(--gold);
       font-weight: bold;
     }
 
     /* No.05 RSVP 表單 */
-    .form-group {
-      margin-bottom: 22px;
-    }
-    fieldset {
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
+    .form-group { margin-bottom: 22px; }
+    fieldset { border: none; padding: 0; margin: 0; }
     .form-label, legend {
       display: block;
       margin-bottom: 8px;
@@ -374,10 +466,7 @@
       font-weight: normal;
       margin-top: 2px;
     }
-    .required {
-      color: #b84040;
-      margin-left: 2px;
-    }
+    .required { color: #b84040; margin-left: 2px; }
     .form-control {
       width: 100%;
       padding: 12px 14px;
@@ -423,9 +512,7 @@
       outline: none;
       width: 100%;
     }
-    .input-line:focus {
-      border-bottom-style: solid;
-    }
+    .input-line:focus { border-bottom-style: solid; }
     .btn-submit {
       width: 100%;
       padding: 14px;
@@ -444,62 +531,89 @@
       opacity: 0.6;
       cursor: not-allowed;
     }
+
+    /* 鎖定唯讀時的輸入框樣式 */
+    .input-locked,
+    input[readonly].form-control {
+      background-color: #f4f1ea !important;
+      color: #555555 !important;
+      cursor: not-allowed !important;
+      border-color: #e0dad0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
     /* 提交成功跳轉卡片 */
-.success-box {
-  display: none;
-  text-align: center;
-  padding: 30px 16px;
-  background: #faf7f2;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 0.6s ease forwards;
-}
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 30px 16px;
+      background: #faf7f2;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 0.6s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .success-img-wrap {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(179, 139, 89, 0.2);
+      border: 2px solid var(--gold);
+    }
+    .success-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .success-box h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .success-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .success-highlight {
+      font-family: var(--font-en);
+      font-size: 1.25rem;
+      color: #966f3d;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-top: 15px;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.success-img-wrap {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(179, 139, 89, 0.2);
-  border: 2px solid var(--gold);
-}
-
-.success-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.success-box h3 {
-  color: var(--primary);
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.success-desc {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: var(--text-main);
-  margin-bottom: 8px;
-}
-
-.success-highlight {
-  font-family: var(--font-en);
-  font-size: 1.25rem;
-  color: #966f3d;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin-top: 15px;
-}
+    /* No.06 Gallery */
+    .gallery-placeholder {
+      background: #faf8f5;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .gallery-placeholder-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+    .gallery-placeholder p {
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
 
     /* Footer */
     footer {
@@ -526,215 +640,6 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
-    /* 小提示 Note 專屬樣式 */
-.notice-card {
-  background: #faf7f2;
-  border-left: 3px solid var(--gold);
-  padding: 22px 20px;
-  border-radius: 0 8px 8px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.notice-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.notice-subtitle {
-  font-size: 0.98rem;
-  font-weight: 600;
-  color: var(--primary);
-  letter-spacing: 0.5px;
-}
-
-.notice-item p {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: var(--text-main);
-}
-
-.parking-rates {
-  list-style: none;
-  margin-top: 6px;
-  padding-left: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.parking-rates li {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  position: relative;
-}
-
-.parking-rates li::before {
-  content: "•";
-  position: absolute;
-  left: -12px;
-  color: var(--gold);
-  font-weight: bold;
-}
-    /* 故事章節相片容器（拍立得微圓角與柔和陰影） */
-.story-photo-wrap {
-  margin-top: 14px;
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-  border: 1px solid rgba(232, 226, 216, 0.7);
-  background: #fdfbf7;
-}
-
-/* 橫相通用比例 (3:2) */
-.story-photo-wrap.landscape img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  display: block;
-  object-fit: cover;
-}
-
-/* 直相專屬比例 (3:4 雜誌直幅，對焦在人物上半身) */
-.story-photo-wrap.portrait img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  display: block;
-  object-fit: cover;
-  object-position: center 20%;
-}
-    /* 給你的小提醒：標題與右側小貼圖排版 */
-/* 給你的小提醒：文字絕對置中，貼圖固定在右上角 */
-.notes-sec-head {
-  position: relative;
-  text-align: center;
-  margin-bottom: 30px;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.notes-head-text {
-  width: 100%;
-}
-
-.notes-sticker-wrap {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%) rotate(4deg);
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: #ffffff;
-  padding: 3px;
-  box-shadow: 0 4px 12px rgba(179, 139, 89, 0.2);
-  border: 1px dashed var(--gold);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.notes-sticker-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-    /* No.03 婚禮資訊：場地卡片與實景圖樣式 */
-.venue-card {
-  background: #faf8f5;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 22px 18px;
-  margin-bottom: 22px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-}
-
-.venue-card:last-child {
-  margin-bottom: 0;
-}
-
-.venue-card h4 {
-  color: var(--primary);
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.venue-card p {
-  font-size: 0.92rem;
-  color: var(--text-main);
-  line-height: 1.6;
-}
-
-.venue-photo-wrap {
-  margin-top: 14px;
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(232, 226, 216, 0.8);
-  background: #ffffff;
-}
-
-.venue-photo-wrap img {
-  width: 100%;
-  height: auto;
-  max-height: 220px; /* 限制圖片高度，保持精緻比例 */
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.venue-photo-wrap img:hover {
-  transform: scale(1.02);
-}
-/* No.04 Transportation 地圖與交通樣式 */
-.map-container {
-  width: 100%;
-  height: 260px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border);
-  margin: 18px 0 20px;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-.venue-address {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-top: -6px;
-  margin-bottom: 12px;
-}
-    /* 鎖定唯讀時的輸入框樣式 */
-.input-locked,
-.input-locked:focus {
-  background-color: #f5f3ef !important;  /* 柔和淺灰色/米色底 */
-  color: #555555 !important;             /* 稍微沉穩的字體顏色 */
-  cursor: not-allowed;                   /* 滑鼠移上去顯示禁止符號 */
-  border-color: #e0dad0 !important;
-  outline: none !important;
-  box-shadow: none !important;
-  user-select: none;
-}
   </style>
 </head>
 <body>
@@ -746,14 +651,12 @@
     <div class="greeting" id="guestGreeting">親愛的朋友</div>
     <h1 class="names">CHRISTY & TOM</h1>
 
-    <!-- 放置於姓名與日期中間的不透明圖片 -->
     <div class="hero-photo-banner">
       <img src="./images/wmhotel.jpeg" alt="WM Hotel Wedding">
     </div>
 
     <div class="date-badge">2027 . 03 . 13</div>
 
-    <!-- 倒數計時器 -->
     <div class="countdown" id="countdown" aria-label="婚禮倒數">
       <div class="time-box"><span id="days">00</span><label>Days</label></div>
       <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
@@ -763,205 +666,175 @@
   </header>
 
   <main>
-    <!-- No.01 Our Story -->
-    <!-- No.01 Our Story -->
-<section class="story-section" id="story">
-  <div class="story-head">
-    <p class="story-en-sub">Our Story</p>
-    <h2 class="story-title">我們的故事</h2>
-    <div class="story-divider"></div>
-  </div>
-
-  <ol class="story-timeline">
-    <!-- 2021.08 初遇 (4人海洋公園 - 橫相) -->
-    <li class="story-item">
-      <div class="story-year">2021.08</div>
-      <div class="story-content">
-        <h3 class="story-item-title">初遇</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
-          <div class="story-photo-wrap landscape">
-            <img src="./images/story_202108.jpeg" alt="2021.08 初遇">
-          </div>
-        </div>
+    <!-- No.01 我們的故事 -->
+    <section class="story-section" id="story">
+      <div class="story-head">
+        <p class="sec-no">No.01</p>
+        <p class="story-en-sub">Our Story</p>
+        <h2 class="story-title">我們的故事</h2>
+        <div class="story-divider"></div>
       </div>
-    </li>
 
-    <!-- 2021.09 靠近 (草地合照 - 橫相) -->
-    <li class="story-item">
-      <div class="story-year">2021.09</div>
-      <div class="story-content">
-        <h3 class="story-item-title">靠近</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
-          <div class="story-photo-wrap landscape">
-            <img src="./images/story_202109.jpeg" alt="2021.09 靠近">
+      <ol class="story-timeline">
+        <li class="story-item">
+          <div class="story-year">2021.08</div>
+          <div class="story-content">
+            <h3 class="story-item-title">初遇</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">本來對「朋友介紹」不抱期望的我們，卻在走出海洋公園的路上，悄悄打開了話匣子。</p>
+              <div class="story-photo-wrap landscape">
+                <img src="./images/story_202108.jpeg" alt="2021.08 初遇">
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </li>
+        </li>
 
-    <!-- 2023.07 築巢 (新家合照 - 直相) -->
-    <li class="story-item">
-      <div class="story-year">2023.07</div>
-      <div class="story-content">
-        <h3 class="story-item-title">築巢</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
-          <div class="story-photo-wrap portrait">
-            <img src="./images/story_202308.jpeg" alt="2023.07 築巢">
+        <li class="story-item">
+          <div class="story-year">2021.09</div>
+          <div class="story-content">
+            <h3 class="story-item-title">靠近</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">從日常聊到人生觀，才發現頻率如此合拍。沒有驚天動地，只是順理成章地確認——對的人，就是你了。</p>
+              <div class="story-photo-wrap landscape">
+                <img src="./images/story_202109.jpeg" alt="2021.09 靠近">
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </li>
+        </li>
 
-    <!-- 2026.02 承諾 (求婚戒指 - 橫相) -->
-    <li class="story-item">
-      <div class="story-year">2026.02</div>
-      <div class="story-content">
-        <h3 class="story-item-title">承諾</h3>
-        <div class="story-desc-wrap">
-          <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
-          <div class="story-photo-wrap landscape">
-            <img src="./images/story_202602.jpeg" alt="2026.02 承諾">
+        <li class="story-item">
+          <div class="story-year">2023.07</div>
+          <div class="story-content">
+            <h3 class="story-item-title">築巢</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">一起搞定裝修這個大考驗，在手忙腳亂中互補扶持。習慣了同一個屋簷下的溫度，也更確定想一起走得更遠。</p>
+              <div class="story-photo-wrap portrait">
+                <img src="./images/story_202308.jpeg" alt="2023.07 築巢">
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </li>
-  </ol>
+        </li>
 
-  <aside class="story-pull-quote">
-    <p>&ldquo;and so, the story begins.&rdquo;</p>
-  </aside>
-</section>
+        <li class="story-item">
+          <div class="story-year">2026.02</div>
+          <div class="story-content">
+            <h3 class="story-item-title">承諾</h3>
+            <div class="story-desc-wrap">
+              <p class="story-desc">沒有喧鬧的人群，只有屬於我們的安靜夜晚。一段影片、一枚戒指、一句「嫁給我好嗎？」，簡單卻剛剛好。</p>
+              <div class="story-photo-wrap landscape">
+                <img src="./images/story_202602.jpeg" alt="2026.02 承諾">
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
 
-    <!-- No.02 The Gallery -->
-    <section class="section" id="gallery">
+      <aside class="story-pull-quote">
+        <p>&ldquo;and so, the story begins.&rdquo;</p>
+      </aside>
+    </section>
+
+    <!-- No.02 婚禮資訊 -->
+    <section class="section" id="details">
       <div class="sec-head">
         <p class="sec-no">No.02</p>
-        <p class="sec-en-label">The Gallery</p>
-        <h2 class="section-title">婚紗相集</h2>
+        <p class="sec-en-label">The Day</p>
+        <h2 class="section-title">婚禮資訊</h2>
       </div>
 
-      <div class="gallery-placeholder">
-        <div class="gallery-placeholder-icon">📷</div>
-        <p>相片預備中，敬請期待</p>
+      <div class="info-card" style="margin-bottom: 25px;">
+        <p style="font-size: 1.05rem; font-weight: 600; color: var(--gold); letter-spacing: 1px;">2027 年 3 月 13 日（星期六）</p>
+      </div>
+
+      <div class="venue-card">
+        <h4>證婚儀式</h4>
+        <p><strong>時間：</strong>10:30am 開始</p>
+        <p><strong>地點：</strong>WM Hotel 小禮堂</p>
+        <div class="venue-photo-wrap">
+          <img src="./images/venue_chapel.jpeg" alt="WM Hotel 小禮堂實景">
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <h4>午宴</h4>
+        <p><strong>時間：</strong>11:30am 恭候 ｜ 12:30pm 午宴入席</p>
+        <p><strong>地點：</strong>WM Hotel 大禮堂</p>
+        <div class="venue-photo-wrap">
+          <img src="./images/venue_ballroom.jpeg" alt="WM Hotel 大禮堂實景">
+        </div>
       </div>
     </section>
 
-    <!-- No.03 The Day -->
-    <!-- No.03 The Day -->
-<section class="section" id="details">
-  <div class="sec-head">
-    <p class="sec-no">No.03</p>
-    <p class="sec-en-label">The Day</p>
-    <h2 class="section-title">婚禮資訊</h2>
-  </div>
+    <!-- No.03 交通 -->
+    <section class="section" id="venue">
+      <div class="sec-head">
+        <p class="sec-no">No.03</p>
+        <p class="sec-en-label">Transportation</p>
+        <h2 class="section-title">交通</h2>
+      </div>
 
-  <!-- 日期放在最前 -->
-  <div class="info-card" style="margin-bottom: 25px;">
-    <p style="font-size: 1.05rem; font-weight: 600; color: var(--gold); letter-spacing: 1px;">2027 年 3 月 13 日（星期六）</p>
-  </div>
+      <div class="info-card">
+        <h4 style="font-size: 1.15rem;">WM Hotel</h4>
+        <p class="venue-address">香港西貢惠民路 28 號</p>
+      </div>
 
-  <!-- 證婚儀式 (小禮堂) -->
-  <div class="venue-card">
-    <h4>證婚儀式</h4>
-    <p><strong>時間：</strong>10:30am 開始</p>
-    <p><strong>地點：</strong>WM Hotel 小禮堂</p>
-    
-    <!-- 小禮堂實景圖 -->
-    <div class="venue-photo-wrap">
-      <img src="./images/venue_chapel.jpeg" alt="WM Hotel 小禮堂實景">
-    </div>
-  </div>
+      <div class="map-container">
+        <iframe 
+          src="https://maps.google.com/maps?q=WM+Hotel,+28+Wai+Man+Rd,+Sai+Kung,+Hong+Kong&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          loading="lazy" 
+          allowfullscreen="" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="WM Hotel Google Map">
+        </iframe>
+      </div>
 
-  <!-- 午宴 (大禮堂) -->
-  <div class="venue-card">
-    <h4>午宴</h4>
-    <p><strong>時間：</strong>11:30am 恭候 ｜ 12:30pm 午宴入席</p>
-    <p><strong>地點：</strong>WM Hotel 大禮堂</p>
-    
-    <!-- 大禮堂實景圖 -->
-    <div class="venue-photo-wrap">
-      <img src="./images/venue_ballroom.jpeg" alt="WM Hotel 大禮堂實景">
-    </div>
-  </div>
-</section>
+      <div class="btn-group">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=WM+Hotel,+Sai+Kung" target="_blank" rel="noopener noreferrer" class="btn-action btn-map">
+          開啟 Google 地圖導航
+        </a>
+        <a href="https://www.wmhotel.hk/upload/files/1211458514.pdf" target="_blank" rel="noopener noreferrer" class="btn-action btn-pdf">
+          📄 WM酒店步行路線圖及公共交通
+        </a>
+      </div>
+    </section>
 
-    <!-- No.04 Transportation -->
-    <!-- No.04 Transportation -->
-<section class="section" id="venue">
-  <div class="sec-head">
-    <p class="sec-no">No.04</p>
-    <p class="sec-en-label">Transportation</p>
-    <h2 class="section-title">交通</h2>
-  </div>
+    <!-- No.04 給您的小提醒 -->
+    <section class="section" id="notes">
+      <div class="notes-sec-head">
+        <div class="notes-head-text">
+          <p class="sec-no">No.04</p>
+          <p class="sec-en-label">Reminders</p>
+          <h2 class="section-title">給您的小提醒</h2>
+        </div>
+        
+        <div class="notes-sticker-wrap">
+          <img src="./images/sticker_couple.png" alt="Christy & Tom Illustration">
+        </div>
+      </div>
 
-  <div class="info-card">
-    <h4 style="font-size: 1.15rem;">WM Hotel</h4>
-    <p class="venue-address">香港西貢惠民路 28 號</p>
-  </div>
+      <div class="notice-card">
+        <div class="notice-item">
+          <h4 class="notice-subtitle">證婚儀式觀禮</h4>
+          <p>我們非常期待與大家分享這份喜悅！惟證婚場地人數所限，如欲觀禮，請於下方回覆告知，以便我們預先協調及妥善安排座位。</p>
+        </div>
 
-  <!-- Google 地圖內嵌 (已定位至 WM Hotel) -->
-  <div class="map-container">
-    <iframe 
-      src="https://maps.google.com/maps?q=WM+Hotel,+28+Wai+Man+Rd,+Sai+Kung,+Hong+Kong&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-      loading="lazy" 
-      allowfullscreen="" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="WM Hotel Google Map">
-    </iframe>
-  </div>
+        <div class="notice-item">
+          <h4 class="notice-subtitle">無障礙設施</h4>
+          <p>證婚及午宴場地均設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。</p>
+        </div>
 
-  <div class="btn-group">
-    <a href="https://www.google.com/maps/dir/?api=1&destination=WM+Hotel,+Sai+Kung" target="_blank" rel="noopener noreferrer" class="btn-action btn-map">
-      開啟 Google 地圖導航
-    </a>
-    <a href="https://www.wmhotel.hk/upload/files/1211458514.pdf" target="_blank" rel="noopener noreferrer" class="btn-action btn-pdf">
-      📄 WM酒店步行路線圖及公共交通
-    </a>
-  </div>
-</section>
+        <div class="notice-item">
+          <h4 class="notice-subtitle">交通及泊車資訊</h4>
+          <p>除新人預留車位外（數量有限），酒店停車場提供逾 270 個公眾車位，自駕親友可參考以下收費：</p>
+          <ul class="parking-rates">
+            <li><strong>時租：</strong>每小時 HK$28</li>
+            <li><strong>12 小時泊車（單次出入）：</strong>HK$130</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <!-- 給你的小提醒 -->
-<!-- 給你的小提醒 -->
-<!-- 給你的小提醒 -->
-<section class="section" id="notes">
-  <div class="notes-sec-head">
-    <div class="notes-head-text">
-      <p class="sec-en-label">Reminders</p>
-      <h2 class="section-title">給你的小提醒</h2>
-    </div>
-    
-    <!-- 右上角小貼圖 -->
-    <div class="notes-sticker-wrap">
-      <img src="./images/sticker_couple.png" alt="Christy & Tom Illustration">
-    </div>
-  </div>
-
-  <div class="notice-card">
-    <div class="notice-item">
-      <h4 class="notice-subtitle">證婚儀式觀禮</h4>
-      <p>我們非常期待與大家分享這份喜悅！惟證婚場地人數所限，如欲觀禮，請於下方回覆告知，以便我們預先協調及妥善安排座位。</p>
-    </div>
-
-    <div class="notice-item">
-      <h4 class="notice-subtitle">無障礙設施</h4>
-      <p>證婚及午宴場地均設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。</p>
-    </div>
-
-    <div class="notice-item">
-      <h4 class="notice-subtitle">交通及泊車資訊</h4>
-      <p>除新人預留車位外（數量有限），酒店停車場提供逾 270 個公眾車位，自駕親友可參考以下收費：</p>
-      <ul class="parking-rates">
-        <li><strong>時租：</strong>每小時 HK$28</li>
-        <li><strong>12 小時泊車（單次出入）：</strong>HK$130</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-    <!-- No.05 RSVP 表單 -->
+    <!-- No.05 出席回覆調查 -->
     <section class="section" id="rsvp">
       <div class="sec-head">
         <p class="sec-no">No.05</p>
@@ -975,11 +848,13 @@
           <label class="form-label" for="name">您的姓名<span class="required">*</span></label>
           <input type="text" id="name" name="name" class="form-control" required placeholder="請填寫姓名">
         </div>
-<!-- 聯絡電話 (新增：必填) -->
-<div class="form-group">
-  <label class="form-label" for="phone">聯絡電話<span class="required">*</span></label>
-  <input type="tel" id="phone" name="phone" class="form-control" required placeholder="例如：91234567" pattern="[0-9\s+-]{8,20}">
-</div>
+
+        <!-- 聯絡電話 -->
+        <div class="form-group">
+          <label class="form-label" for="phone">聯絡電話<span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" class="form-control" required placeholder="例如：91234567" pattern="[0-9\s+-]{8,20}">
+        </div>
+
         <!-- 出席意願 -->
         <div class="form-group">
           <fieldset>
@@ -1003,7 +878,7 @@
 
         <!-- 出席詳細項目（選擇能夠出席時展開） -->
         <div id="attendDetails" style="display: none;">
-          <!-- 證婚儀式出席問題 (新加入) -->
+          <!-- 證婚儀式出席問題 -->
           <div class="form-group">
             <fieldset>
               <legend>您會到場觀看證婚儀式嗎？<span class="sub-desc">(10:30am 開始 ｜ WM Hotel 小禮堂)</span></legend>
@@ -1045,24 +920,24 @@
               <legend>您有食物敏感 / 飲食偏好嗎？</legend>
               <div class="options-list">
                 <label class="option-item">
-                  <input type="checkbox" name="dietary" value="沒有">
+                  <input type="checkbox" id="dietaryNone" name="dietary" value="沒有">
                   沒有
                 </label>
 
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                   <label class="option-item">
-                    <input type="checkbox" name="dietary" value="有食物敏感">
+                    <input type="checkbox" id="dietaryAllergy" name="dietary" value="有食物敏感">
                     我有食物敏感 (請在下方列明，我們會盡力滿足)
                   </label>
-                  <input type="text" name="allergy_detail" class="input-line" placeholder="請列明敏感食材（例如：對花生/甲殼類敏感）...">
+                  <input type="text" id="allergyDetail" name="allergy_detail" class="input-line" placeholder="請列明敏感食材（例如：對花生/甲殼類敏感）...">
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                   <label class="option-item">
-                    <input type="checkbox" name="dietary" value="素食者">
+                    <input type="checkbox" id="dietaryVeg" name="dietary" value="素食者">
                     我是素食者 (請在下方列明，我們會盡力滿足)
                   </label>
-                  <input type="text" name="veg_detail" class="input-line" placeholder="請列明素食需求（例如：蛋奶素/純素/其中1位素食）...">
+                  <input type="text" id="vegDetail" name="veg_detail" class="input-line" placeholder="請列明素食需求（例如：蛋奶素/純素/其中1位素食）...">
                 </div>
               </div>
             </fieldset>
@@ -1120,18 +995,31 @@
       </form>
 
       <div class="success-box" id="successBox">
-  <!-- 圓形展示圖片（可使用似顏繪或婚紗照） -->
-  <div class="success-img-wrap">
-    <img src="./images/thank you.png" alt="Thank You">
-  </div>
+        <div class="success-img-wrap">
+          <img src="./images/thank you.png" alt="Thank You">
+        </div>
+        <h3>✓ 回覆已經送出</h3>
+        <p class="success-desc">
+          非常感謝您的回覆！<br>
+          如有任何更改，歡迎隨時與我們聯絡。
+        </p>
+        <p class="success-highlight">See You Soon！到時見！</p>
+      </div>
+    </section>
 
-  <h3>✓ 回覆已經送出</h3>
-  <p class="success-desc">
-    非常感謝您的回覆！<br>
-    如有任何更改，歡迎隨時與我們聯絡。
-  </p>
-  <p class="success-highlight">See You Soon！到時見！</p>
-</div>
+    <!-- No.06 婚紗相集 -->
+    <section class="section" id="gallery">
+      <div class="sec-head">
+        <p class="sec-no">No.06</p>
+        <p class="sec-en-label">The Gallery</p>
+        <h2 class="section-title">婚紗相集</h2>
+      </div>
+
+      <div class="gallery-placeholder">
+        <div class="gallery-placeholder-icon">📷</div>
+        <p>相片預備中，敬請期待</p>
+      </div>
+    </section>
   </main>
 
   <!-- ⑦ Footer 結尾致謝 -->
@@ -1150,22 +1038,26 @@
   const weddingDate = new Date(2027, 2, 13, 10, 30, 0).getTime();
 
   // 3. 解析網址參數 ?to=賓客稱謂
- const urlParams = new URLSearchParams(window.location.search);
-  const guestName = urlParams.get('to');
+  const urlParams = new URLSearchParams(window.location.search);
+  const rawParam = urlParams.get('to');
+  let guestName = "";
+
+  if (rawParam) {
+    try {
+      guestName = decodeURIComponent(rawParam).trim();
+    } catch (err) {
+      guestName = rawParam.trim();
+    }
+  }
+
   const greetingElem = document.getElementById('guestGreeting');
   const nameInput = document.getElementById('name');
 
   if (guestName) {
     greetingElem.textContent = `親愛的 ${guestName}`;
     nameInput.value = guestName;
-
-    // 鎖定輸入框為唯讀，不可點擊修改
     nameInput.readOnly = true;
-
-    // 加入鎖定外觀樣式（灰色底色與禁用游標）
-    nameInput.style.backgroundColor = '#f4f1ea';
-    nameInput.style.color = '#666666';
-    nameInput.style.cursor = 'not-allowed';
+    nameInput.classList.add('input-locked');
   }
 
   // 4. 倒數計時器
@@ -1189,7 +1081,33 @@
     details.style.display = isAttending ? 'block' : 'none';
   }
 
-  // 6. 表單提交至 Google Sheets
+  // 6. 飲食偏好選項互相排斥邏輯
+  const dietaryNone = document.getElementById('dietaryNone');
+  const dietaryAllergy = document.getElementById('dietaryAllergy');
+  const dietaryVeg = document.getElementById('dietaryVeg');
+  const allergyDetail = document.getElementById('allergyDetail');
+  const vegDetail = document.getElementById('vegDetail');
+
+  if (dietaryNone && dietaryAllergy && dietaryVeg) {
+    dietaryNone.addEventListener('change', function() {
+      if (this.checked) {
+        dietaryAllergy.checked = false;
+        dietaryVeg.checked = false;
+        if (allergyDetail) allergyDetail.value = '';
+        if (vegDetail) vegDetail.value = '';
+      }
+    });
+
+    dietaryAllergy.addEventListener('change', function() {
+      if (this.checked) dietaryNone.checked = false;
+    });
+
+    dietaryVeg.addEventListener('change', function() {
+      if (this.checked) dietaryNone.checked = false;
+    });
+  }
+
+  // 7. 表單提交至 Google Sheets
   const form = document.getElementById('rsvpForm');
   const submitBtn = document.getElementById('submitBtn');
   const successBox = document.getElementById('successBox');
@@ -1201,38 +1119,37 @@
 
     const isAttending = form.attendance.value === "能夠出席";
 
-    // 收集選取的飲食偏好與填寫內容
+    // 收集選取的飲食偏好
     const selectedDietary = [];
     if (isAttending) {
-      const noneCb = form.querySelector('input[name="dietary"][value="沒有"]');
-      const allergyCb = form.querySelector('input[name="dietary"][value="有食物敏感"]');
-      const vegCb = form.querySelector('input[name="dietary"][value="素食者"]');
-
-      if (noneCb && noneCb.checked) {
+      if (dietaryNone && dietaryNone.checked) {
         selectedDietary.push('沒有');
       }
-      if (allergyCb && allergyCb.checked) {
-        const allergyText = form.allergy_detail ? form.allergy_detail.value.trim() : '';
-        selectedDietary.push(allergyText ? `食物敏感: ${allergyText}` : '有食物敏感');
+      if (dietaryAllergy && dietaryAllergy.checked) {
+        const aText = allergyDetail ? allergyDetail.value.trim() : '';
+        selectedDietary.push(aText ? `食物敏感: ${aText}` : '有食物敏感');
       }
-      if (vegCb && vegCb.checked) {
-        const vegText = form.veg_detail ? form.veg_detail.value.trim() : '';
-        selectedDietary.push(vegText ? `素食: ${vegText}` : '素食者');
+      if (dietaryVeg && dietaryVeg.checked) {
+        const vText = vegDetail ? vegDetail.value.trim() : '';
+        selectedDietary.push(vText ? `素食: ${vText}` : '素食者');
       }
     }
 
+    const cleanPhone = String(form.phone.value || '').trim();
+
     const payload = {
       greeting: guestName || '',
-      name: form.name.value,
-      phone: form.phone.value, // 新增：收集聯絡電話
+      name: form.name.value.trim(),
+      phone: cleanPhone,
       attendance: form.attendance.value,
       ceremony: isAttending && form.ceremony ? form.ceremony.value : '',
       guests: isAttending ? form.guests.value : 0,
       dietary: isAttending ? selectedDietary.join(' | ') : '',
       parking: isAttending && form.parking ? form.parking.value : '',
       shuttle_bus: isAttending && form.shuttle_bus ? form.shuttle_bus.value : '',
-      message: form.message.value
+      message: form.message.value.trim()
     };
+
     fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -1242,7 +1159,6 @@
     .then(() => {
       form.style.display = 'none';
       successBox.style.display = 'block';
-      // 平滑滾動至成功畫面
       successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch(err => {
