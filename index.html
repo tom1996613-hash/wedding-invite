@@ -640,6 +640,58 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
+    /* 泊車收費卡片排版 */
+.notice-subtext {
+  font-size: 0.88rem !important;
+  color: var(--text-muted) !important;
+  margin-top: 4px;
+}
+
+.parking-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.pricing-type {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.pricing-amount {
+  font-family: var(--font-en);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.pricing-amount small {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--text-muted);
+}
+
+/* 手機版自適應 */
+@media (max-width: 380px) {
+  .parking-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 <body>
@@ -824,14 +876,22 @@
         </div>
 
         <div class="notice-item">
-          <h4 class="notice-subtitle">交通及泊車資訊</h4>
-          <p>為方便各位賓客出席，我們會盡力安排預留車位（享 3 小時免費泊車）。因免費車位數量有限，如未能成功預留敬請見諒。自駕前往的賓客亦可自費使用酒店室內停車場（逾 270 個車位），收費詳情請參考下方：</p>
-          <ul class="parking-rates">
-            <li><strong>時租：</strong>每小時 HK$28</li>
-            <li><strong>12 小時泊車（單次出入）：</strong>HK$130</li>
-          </ul>
-        </div>
-      </div>
+  <h4 class="notice-subtitle">交通及泊車資訊</h4>
+  <p>為方便各位賓客出席，我們會盡力安排<strong>預留車位（享 3 小時免費泊車）</strong>。因免費車位數量有限，如未能成功預留敬請見諒。</p>
+  <p class="notice-subtext">自駕親友亦可自費使用酒店室內停車場（逾 270 個車位）：</p>
+  
+  <!-- 精緻收費小卡牌 -->
+  <div class="parking-pricing-grid">
+    <div class="pricing-card">
+      <span class="pricing-type">時租收費</span>
+      <span class="pricing-amount">HK$28 <small>/ 小時</small></span>
+    </div>
+    <div class="pricing-card">
+      <span class="pricing-type">12 小時泊車 (單次出入)</span>
+      <span class="pricing-amount">HK$130</span>
+    </div>
+  </div>
+</div>
     </section>
 
     <!-- No.05 出席回覆調查 -->
