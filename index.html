@@ -890,7 +890,13 @@
         <!-- 出席意願 -->
         <div class="form-group">
           <fieldset>
-            <legend>您會出席我們的結婚午宴嗎？<span class="required">*</span></legend>
+            <legend>
+              您會出席我們的結婚午宴嗎？<span class="required">*</span>
+              <!-- 專屬同事動態紅色提示 (預設隱藏) -->
+              <span id="physioNotice" style="display: none; color: #d93025; font-size: 0.82rem; font-weight: bold; margin-top: 4px; line-height: 1.5;">
+                (致東華PHYSIO同事: 因更期未定，請假設當天不用上班回覆您的意向)
+              </span>
+            </legend>
             <div class="options-list">
               <label class="option-item">
                 <input type="radio" name="attendance" value="能夠出席" required onclick="toggleAttend(true)">
@@ -1074,6 +1080,33 @@
   // 2. 婚禮目標日期 (2027-03-13 11:00 證婚儀式開始)
   const weddingDate = new Date(2027, 2, 13, 11, 0, 0).getTime();
 
+  // ==========================================
+  // 🏥 東華 PHYSIO 同事專屬名單 (共 29 位)
+  // ==========================================
+  const PHYSIO_COLLEAGUES = [
+    "Mary", "Irene", "May", "Mandy", "KK", "Marcus", "Felix", "Akko",
+    "Cherrie", "Leo", "Leuk", "Jessica", "Hazel", "Tiffany", "Jackson",
+    "Happy", "YAN", "欣", "Carman", "三妹", "微", "清", "MEIMEI",
+    "LIAN", "JENNY", "雪", "錦", "鈴", "凌"
+  ];
+
+  function checkPhysioColleague(name) {
+    const noticeElem = document.getElementById('physioNotice');
+    if (!noticeElem) return;
+
+    if (!name) {
+      noticeElem.style.display = 'none';
+      return;
+    }
+
+    const cleanName = name.trim().toLowerCase();
+    const isColleague = PHYSIO_COLLEAGUES.some(colleague => 
+      colleague.trim().toLowerCase() === cleanName || cleanName.includes(colleague.trim().toLowerCase())
+    );
+
+    noticeElem.style.display = isColleague ? 'block' : 'none';
+  }
+
   // 3. 解析網址參數 ?to=賓客稱謂
   const urlParams = new URLSearchParams(window.location.search);
   const rawParam = urlParams.get('to');
@@ -1095,6 +1128,13 @@
     nameInput.value = guestName;
     nameInput.readOnly = true;
     nameInput.classList.add('input-locked');
+    checkPhysioColleague(guestName);
+  }
+
+  if (nameInput) {
+    nameInput.addEventListener('input', function() {
+      checkPhysioColleague(this.value);
+    });
   }
 
   // 4. 倒數計時器
@@ -1105,7 +1145,7 @@
     if (distance > 0) {
       document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
       document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-      document.getElementById('mins').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      document.getElementById('mins').innerText = String(Math.floor((distance % (1000 * 60)) / (1000 * 60))).padStart(2, '0');
       document.getElementById('secs').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
     }
   }
@@ -1169,7 +1209,6 @@
 
     const isAttending = form.attendance.value === "能夠出席";
 
-    // 驗證車牌（若選擇需要預留車位，車牌不可為空白）
     let parkingValue = "不需要";
     if (isAttending && form.parking && form.parking.value === "需要預留") {
       const plateVal = form.car_plate ? form.car_plate.value.trim().toUpperCase() : '';
@@ -1184,7 +1223,6 @@
     submitBtn.disabled = true;
     submitBtn.innerText = "傳送中...";
 
-    // 收集選取的飲食偏好
     const selectedDietary = [];
     if (isAttending) {
       if (dietaryNone && dietaryNone.checked) {
