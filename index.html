@@ -724,6 +724,17 @@
   margin-top: -6px;
   margin-bottom: 12px;
 }
+    /* 鎖定唯讀時的輸入框樣式 */
+.input-locked,
+.input-locked:focus {
+  background-color: #f5f3ef !important;  /* 柔和淺灰色/米色底 */
+  color: #555555 !important;             /* 稍微沉穩的字體顏色 */
+  cursor: not-allowed;                   /* 滑鼠移上去顯示禁止符號 */
+  border-color: #e0dad0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  user-select: none;
+}
   </style>
 </head>
 <body>
@@ -1139,7 +1150,7 @@
   const weddingDate = new Date(2027, 2, 13, 10, 30, 0).getTime();
 
   // 3. 解析網址參數 ?to=賓客稱謂
-  const urlParams = new URLSearchParams(window.location.search);
+ const urlParams = new URLSearchParams(window.location.search);
   const guestName = urlParams.get('to');
   const greetingElem = document.getElementById('guestGreeting');
   const nameInput = document.getElementById('name');
@@ -1147,6 +1158,14 @@
   if (guestName) {
     greetingElem.textContent = `親愛的 ${guestName}`;
     nameInput.value = guestName;
+
+    // 鎖定輸入框為唯讀，不可點擊修改
+    nameInput.readOnly = true;
+
+    // 加入鎖定外觀樣式（灰色底色與禁用游標）
+    nameInput.style.backgroundColor = '#f4f1ea';
+    nameInput.style.color = '#666666';
+    nameInput.style.cursor = 'not-allowed';
   }
 
   // 4. 倒數計時器
