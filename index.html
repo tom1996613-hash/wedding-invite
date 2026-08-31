@@ -805,7 +805,11 @@
           <label class="form-label" for="name">您的姓名<span class="required">*</span></label>
           <input type="text" id="name" name="name" class="form-control" required placeholder="請填寫姓名">
         </div>
-
+<!-- 聯絡電話 (新增：必填) -->
+<div class="form-group">
+  <label class="form-label" for="phone">聯絡電話<span class="required">*</span></label>
+  <input type="tel" id="phone" name="phone" class="form-control" required placeholder="例如：91234567" pattern="[0-9\s+-]{8,20}">
+</div>
         <!-- 出席意願 -->
         <div class="form-group">
           <fieldset>
@@ -1034,15 +1038,15 @@
     const payload = {
       greeting: guestName || '',
       name: form.name.value,
+      phone: form.phone.value, // 新增：收集聯絡電話
       attendance: form.attendance.value,
-      ceremony: isAttending && form.ceremony ? form.ceremony.value : '', // 新增證婚出席
+      ceremony: isAttending && form.ceremony ? form.ceremony.value : '',
       guests: isAttending ? form.guests.value : 0,
       dietary: isAttending ? selectedDietary.join(' | ') : '',
       parking: isAttending && form.parking ? form.parking.value : '',
       shuttle_bus: isAttending && form.shuttle_bus ? form.shuttle_bus.value : '',
       message: form.message.value
     };
-
     fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
