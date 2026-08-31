@@ -645,6 +645,58 @@
   border-radius: 50%;
   display: block;
 }
+    /* No.03 婚禮資訊：場地卡片與實景圖樣式 */
+.venue-card {
+  background: #faf8f5;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 18px;
+  margin-bottom: 22px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.venue-card:last-child {
+  margin-bottom: 0;
+}
+
+.venue-card h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.venue-card p {
+  font-size: 0.92rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.venue-photo-wrap {
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(232, 226, 216, 0.8);
+  background: #ffffff;
+}
+
+.venue-photo-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 220px; /* 限制圖片高度，保持精緻比例 */
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.venue-photo-wrap img:hover {
+  transform: scale(1.02);
+}
+
   </style>
 </head>
 <body>
@@ -760,32 +812,43 @@
     </section>
 
     <!-- No.03 The Day -->
-    <section class="section" id="details">
-      <div class="sec-head">
-        <p class="sec-no">No.03</p>
-        <p class="sec-en-label">The Day</p>
-        <h2 class="section-title">婚禮資訊</h2>
-      </div>
+    <!-- No.03 The Day -->
+<section class="section" id="details">
+  <div class="sec-head">
+    <p class="sec-no">No.03</p>
+    <p class="sec-en-label">The Day</p>
+    <h2 class="section-title">婚禮資訊</h2>
+  </div>
 
-      <!-- 日期放在最前 -->
-      <div class="info-card">
-        <p style="font-size: 1.05rem; font-weight: 600; color: var(--primary);">2027 年 3 月 13 日（星期六）</p>
-      </div>
+  <!-- 日期放在最前 -->
+  <div class="info-card" style="margin-bottom: 25px;">
+    <p style="font-size: 1.05rem; font-weight: 600; color: var(--gold); letter-spacing: 1px;">2027 年 3 月 13 日（星期六）</p>
+  </div>
 
-      <!-- 證婚儀式 -->
-      <div class="info-card">
-        <h4>證婚儀式</h4>
-        <p>時間：10:30am 開始</p>
-        <p>地點：WM Hotel 小禮堂</p>
-      </div>
+  <!-- 證婚儀式 (小禮堂) -->
+  <div class="venue-card">
+    <h4>證婚儀式</h4>
+    <p><strong>時間：</strong>10:30am 開始</p>
+    <p><strong>地點：</strong>WM Hotel 小禮堂</p>
+    
+    <!-- 小禮堂實景圖 -->
+    <div class="venue-photo-wrap">
+      <img src="./images/venue_chapel.jpeg" alt="WM Hotel 小禮堂實景">
+    </div>
+  </div>
 
-      <!-- 午宴 -->
-      <div class="info-card">
-        <h4>午宴</h4>
-        <p>時間：11:30am 恭候 ｜ 12:30pm 午宴入席</p>
-        <p>地點：WM Hotel 大禮堂</p>
-      </div>
-    </section>
+  <!-- 午宴 (大禮堂) -->
+  <div class="venue-card">
+    <h4>午宴</h4>
+    <p><strong>時間：</strong>11:30am 恭候 ｜ 12:30pm 午宴入席</p>
+    <p><strong>地點：</strong>WM Hotel 大禮堂</p>
+    
+    <!-- 大禮堂實景圖 -->
+    <div class="venue-photo-wrap">
+      <img src="./images/venue_ballroom.jpeg" alt="WM Hotel 大禮堂實景">
+    </div>
+  </div>
+</section>
 
     <!-- No.04 Transportation -->
     <section class="section" id="venue">
