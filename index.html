@@ -770,7 +770,8 @@
         <p style="font-size: 1.05rem; font-weight: 600; color: var(--gold); letter-spacing: 1px;">2027 年 3 月 13 日（星期六）</p>
       </div>
 
-      <div class="venue-card">
+      <!-- 證婚卡片（依權限動態顯示/隱藏） -->
+      <div class="venue-card" id="ceremonyVenueCard">
         <h4>證婚儀式</h4>
         <p><strong>時間：</strong>11:00 a.m. 開始</p>
         <p><strong>地點：</strong>WM Hotel 小禮堂</p>
@@ -837,14 +838,15 @@
       </div>
 
       <div class="notice-card">
-        <div class="notice-item">
+        <!-- 證婚提醒項目（依權限動態顯示/隱藏） -->
+        <div class="notice-item" id="ceremonyNoticeItem">
           <h4 class="notice-subtitle">證婚儀式</h4>
           <p>我們非常期待與大家分享這份喜悅！惟證婚場地人數所限，如欲觀禮，請於下方回覆告知，以便我們預先協調及妥善安排座位。</p>
         </div>
 
         <div class="notice-item">
           <h4 class="notice-subtitle">無障礙設施</h4>
-          <p>證婚及午宴場地均設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。</p>
+          <p id="accessibilityText">證婚及午宴場地均設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。</p>
         </div>
 
         <div class="notice-item">
@@ -931,8 +933,8 @@
             </select>
           </div>
         
-          <!-- 證婚儀式出席問題 -->
-          <div class="form-group">
+          <!-- 證婚儀式出席問題（依權限動態顯示/隱藏） -->
+          <div class="form-group" id="ceremonyFormGroup">
             <fieldset>
               <legend>您會參與證婚儀式嗎？<span class="sub-desc">(11:00am 開始 ｜ WM Hotel 小禮堂)</span></legend>
               <div class="options-list">
@@ -1107,7 +1109,39 @@
     noticeElem.style.display = isColleague ? 'block' : 'none';
   }
 
-  // 3. 解析網址參數 ?to=賓客稱謂
+  // 3. 檢查與套用「觀禮邀請權限」
+  let isExcludedFromCeremony = false;
+
+  function applyCeremonyVisibility(isExcluded) {
+    isExcludedFromCeremony = isExcluded;
+
+    const ceremonyVenueCard = document.getElementById('ceremonyVenueCard');
+    const ceremonyNoticeItem = document.getElementById('ceremonyNoticeItem');
+    const ceremonyFormGroup = document.getElementById('ceremonyFormGroup');
+    const accessibilityText = document.getElementById('accessibilityText');
+
+    if (isExcluded) {
+      // 隱藏 No.02 證婚小禮堂卡片
+      if (ceremonyVenueCard) ceremonyVenueCard.style.display = 'none';
+      // 隱藏 No.04 證婚小提醒
+      if (ceremonyNoticeItem) ceremonyNoticeItem.style.display = 'none';
+      // 隱藏 No.05 RSVP 證婚出席題目
+      if (ceremonyFormGroup) ceremonyFormGroup.style.display = 'none';
+      // 修改無障礙文字，移除「證婚」字眼
+      if (accessibilityText) {
+        accessibilityText.textContent = '午宴場地設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。';
+      }
+    } else {
+      if (ceremonyVenueCard) ceremonyVenueCard.style.display = 'block';
+      if (ceremonyNoticeItem) ceremonyNoticeItem.style.display = 'flex';
+      if (ceremonyFormGroup) ceremonyFormGroup.style.display = 'block';
+      if (accessibilityText) {
+        accessibilityText.textContent = '證婚及午宴場地均設有無障礙通道與設施。如長輩或親友有特定路線指引需求，歡迎隨時聯絡我們，我們會預先提供詳細路線。';
+      }
+    }
+  }
+
+  // 4. 解析網址參數 ?to=賓客稱謂 並向後端驗證權限
   const urlParams = new URLSearchParams(window.location.search);
   const rawParam = urlParams.get('to');
   let guestName = "";
@@ -1129,6 +1163,16 @@
     nameInput.readOnly = true;
     nameInput.classList.add('input-locked');
     checkPhysioColleague(guestName);
+
+    // 向 Apps Script 查詢是否不邀請觀禮
+    fetch(`${SCRIPT_URL}?to=${encodeURIComponent(guestName)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success" && data.excludeCeremony) {
+          applyCeremonyVisibility(true);
+        }
+      })
+      .catch(err => console.error("無法載入觀禮權限設定", err));
   }
 
   if (nameInput) {
@@ -1137,7 +1181,7 @@
     });
   }
 
-  // 4. 倒數計時器
+  // 5. 倒數計時器
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
@@ -1152,13 +1196,13 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // 5. 切換出席/不出席欄位顯示
+  // 6. 切換出席/不出席欄位顯示
   function toggleAttend(isAttending) {
     const details = document.getElementById('attendDetails');
     details.style.display = isAttending ? 'block' : 'none';
   }
 
-  // 6. 切換車牌輸入欄位展開與必填
+  // 7. 切換車牌輸入欄位展開與必填
   function toggleCarPlate(isNeed) {
     const carPlateWrap = document.getElementById('carPlateWrap');
     const carPlate = document.getElementById('carPlate');
@@ -1173,7 +1217,7 @@
     }
   }
 
-  // 7. 飲食偏好選項互相排斥邏輯
+  // 8. 飲食偏好選項互相排斥邏輯
   const dietaryNone = document.getElementById('dietaryNone');
   const dietaryAllergy = document.getElementById('dietaryAllergy');
   const dietaryVeg = document.getElementById('dietaryVeg');
@@ -1199,7 +1243,7 @@
     });
   }
 
-  // 8. 表單提交至 Google Sheets
+  // 9. 表單提交至 Google Sheets
   const form = document.getElementById('rsvpForm');
   const submitBtn = document.getElementById('submitBtn');
   const successBox = document.getElementById('successBox');
@@ -1240,12 +1284,18 @@
 
     const cleanPhone = String(form.phone.value || '').trim();
 
+    // 如果該賓客被排除觀禮，ceremony 欄位自動記錄為空值或不出席，避免錯誤寫入
+    let ceremonyValue = '';
+    if (isAttending) {
+      ceremonyValue = (!isExcludedFromCeremony && form.ceremony) ? form.ceremony.value : '不出席';
+    }
+
     const payload = {
       greeting: guestName || '',
       name: form.name.value.trim(),
       phone: cleanPhone,
       attendance: form.attendance.value,
-      ceremony: isAttending && form.ceremony ? form.ceremony.value : '',
+      ceremony: ceremonyValue,
       guests: isAttending ? form.guests.value : 0,
       dietary: isAttending ? selectedDietary.join(' | ') : '',
       parking: isAttending ? parkingValue : '',
